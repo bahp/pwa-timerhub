@@ -13,6 +13,8 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="PWA Splash">
+
+  <!--
   <link rel="apple-touch-startup-image" href="images/splash/launch-640x1136.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
   <link rel="apple-touch-startup-image" href="images/splash/launch-750x1294.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
   <link rel="apple-touch-startup-image" href="images/splash/launch-1242x2148.png" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
@@ -21,14 +23,14 @@
   <link rel="apple-touch-startup-image" href="images/splash/launch-1668x2224.png" media="(min-device-width: 834px) and (max-device-width: 834px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)">
   <link rel="apple-touch-startup-image" href="images/splash/launch-2048x2732.png" media="(min-device-width: 1024px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)">
   <link rel="apple-touch-icon" sizes="180x180" href="images/icons/apple-touch-icon.png">
+  -->
   <link rel="mask-icon" href="images/icons/safari-pinned-tab.svg" color="#6F6F6F">
   <meta name="msapplication-TileColor" content="#00aba9">
   <meta name="theme-color" content="#ffffff">
   <title>TH1</title>
 
 
-  <script src="https://cdn.jsdelivr.net/npm/ios-pwa-splash@1.0.0/cdn.min.js"></script>
-  <script>iosPWASplash('./images/logo-pdx.png', '#000000');</script>
+  <script src="https://unpkg.com/ios-pwa-splash@1.0.0/cdn.min.js"></script>
 
   <!--<meta name="apple-mobile-web-app-status-bar" content="#db4938" />-->
   <!--
@@ -996,6 +998,8 @@
 
     // On document ready
     $(document).ready(function() {
+
+       iosPWASplash('./images/logo-pdx.png', '#FFFFFF');
 
       // Create database if it does not exist
       createDatabase(reset=false).then(function(result) {
