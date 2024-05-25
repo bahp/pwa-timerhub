@@ -84,8 +84,23 @@ label:has(input[type="radio"]:checked) {
     transform: translateX(-50%);
 }
 
+.bi {
+   color: var(--pdx-gray-2);
+}
+
+.pdx-icon {
+    color: var(--pdx-gray-2);
+    color-background: var(--pdx-gray-2);
+    width: 32px;
+    height: 32px;
+}
+
 .bi-volume-up-fill {
     color: var(--pdx-gray-1);
+}
+
+.bi-gear-fill {
+    /*background-image: url(/images/gear.svg);*/
 }
 
 
@@ -229,21 +244,6 @@ label:has(input[type="radio"]:checked) {
 }
 
 
-.icon-gear {
-    color: var(--color-dark-gray);
-}
-
-.icon-faq {
-    color: var(--color-dark-gray);
-}
-
-.icon-sound-off {
-
-}
-
-.icon-sound-on {
-
-}
 
 .form-switch {
     transform: scale(1);
