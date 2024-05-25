@@ -1,6 +1,6 @@
 const staticCacheName = 'timerhub-static';
 const dynamicCacheName = 'timerhub-dynamic';
-const filesToCache = [
+const assets = [
   '/pwa-timerhub/',
   '/pwa-timerhub/index.html',
   '/pwa-timerhub/app.js',
@@ -12,6 +12,7 @@ const filesToCache = [
   '/pwa-timerhub/js/bootstrap-5.3.0.min.js',
   '/pwa-timerhub/js/easytimer-1.1.3.min.js',
   '/pwa-timerhub/js/jquery-3.6.0.min.js',
+  '/pwa-timerhub/js/pagecycle.js',
 ];
 
 /*
@@ -34,6 +35,68 @@ const filesToCache = [
  */
 
 
+// cache size limit function
+const limitCacheSize = (name, size) => {
+  caches.open(name).then(cache => {
+    cache.keys().then(keys => {
+      if (keys.length > size) {
+        cache.delete(keys[0]).then(limitCacheSize(name, size))
+      }
+    })
+  })
+}
+
+// install event
+self.addEventListener('install', evt => {
+  console.log('[Service Worker] Installing Service Worker ...', evt);
+  evt.waitUntil(
+    caches.open(staticCacheName).then((cache) => {
+      console.log('[Service Worker] Caching shell assets ...');
+      cache.addAll(assets)
+    })
+  )
+})
+
+// activate event
+self.addEventListener('activate', evt => {
+  console.log('[Service Worker] Activating Service Worker ....', evt);
+  evt.waitUntil(
+    caches.keys().then(keys => {
+      //console.log(keys)
+      return Promise.all(keys
+        .filter(key => key !== staticCacheName && key !== dynamicCacheName)
+        .map(key => caches.delete(key))
+      )
+    })
+  )
+})
+
+// fetch event
+self.addEventListener('fetch', evt => {
+  //console.log('fetch event', evt)
+  evt.respondWith(
+    caches.match(evt.request).then(cacheRes => {
+      return cacheRes || fetch(evt.request).then(fetchRes => {
+        return caches.open(dynamicCacheName).then(cache => {
+          cache.put(evt.request.url, fetchRes.clone())
+          // check cached items size
+          limitCacheSize(dynamicCacheName, 15)
+          return fetchRes
+        })
+      })
+    }).catch(() => {
+      if (evt.request.url.indexOf('.html') > -1) {
+        return caches.match('/pwa-github/static/tmpl/404.html')
+      }
+    })
+  )
+})
+
+
+
+
+
+/*
 self.addEventListener('install', function(event) {
   console.log('[Service Worker] Installing Service Worker ...', event);
   event.waitUntil(
@@ -73,3 +136,4 @@ self.addEventListener('visibilitychange', function() {
       updateLog('resumedd!')
     }
 });
+*/
