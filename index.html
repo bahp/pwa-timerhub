@@ -287,12 +287,11 @@
     </div>
 
 
-    <!--
     <button class="btn btn-danger" onclick="location.reload()"></button>
     e
     <div id="info"></div>
     a
-    -->
+
 
     <!-- --------------------------------- -->
     <!-- First Group                       -->
@@ -1027,6 +1026,12 @@
     **/
 
 
+function updateLog(message) {
+   document.getElementById("info").innerHTML =
+      document.getElementById("info").innerHTML +
+          + ' | ' + message + ' | ' +
+          new Date().toDateString() + '<br>';
+}
 
     // Initialise
     var AUX = {}
