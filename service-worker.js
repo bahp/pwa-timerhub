@@ -1,16 +1,17 @@
-var cacheName = 'timerhub';
-var filesToCache = [
-  '/',
-  '/index.html',
-  '/app.js',
-  '/favicon.ico',
-  '/manifest.json',
-  '/css/pdx.css',
-  '/css/main.css',
-  '/css/bootstrap.min.css',
-  '/js/bootstrap-5.3.0.min.js',
-  '/js/easytimer-1.1.3.min.js',
-  '/js/jquery-3.6.0.min.js',
+const staticCacheName = 'timerhub-static';
+const dynamicCacheName = 'timerhub-dynamic';
+const filesToCache = [
+  '/pwa-timerhub/',
+  '/pwa-timerhub/index.html',
+  '/pwa-timerhub/app.js',
+  '/pwa-timerhub/favicon.ico',
+  '/pwa-timerhub/manifest.json',
+  '/pwa-timerhub/css/pdx.css',
+  '/pwa-timerhub/css/main.css',
+  '/pwa-timerhub/css/bootstrap.min.css',
+  '/pwa-timerhub/js/bootstrap-5.3.0.min.js',
+  '/pwa-timerhub/js/easytimer-1.1.3.min.js',
+  '/pwa-timerhub/js/jquery-3.6.0.min.js',
 ];
 
 /*
@@ -36,7 +37,8 @@ var filesToCache = [
 self.addEventListener('install', function(event) {
   console.log('[Service Worker] Installing Service Worker ...', event);
   event.waitUntil(
-    caches.open(cacheName).then(function(cache) {
+    caches.open(staticCacheName).then(function(cache) {
+      console.log('[Service Worker] Caching shell assets ...');
       cache.addAll(filesToCache);
     })
   );
@@ -53,7 +55,7 @@ self.addEventListener('fetch', function(event) {
         return response;
       } else {
         return fetch(event.request).then(function(res) {
-          return caches.open('dynamic').then(function(cache) {
+          return caches.open(dynamicCacheName).then(function(cache) {
             cache.put(event.request.url, res.clone());
             return res;
           });
