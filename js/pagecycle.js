@@ -1,9 +1,12 @@
 
 function updateLog(message) {
+
+    var msg = message + ' | ' + new Date().toTimeString() + '<br>';
+    console.log(msg)
    document.getElementById("info").innerHTML =
       document.getElementById("info").innerHTML +
           + ' | ' + message + ' | ' +
-          new Date().toDateString() + '<br>';
+          new Date().toTimeString() + '<br>';
 }
 
 const getState = () => {
@@ -24,12 +27,14 @@ const getState = () => {
   const logStateChange = (nextState) => {
     const prevState = state;
     if (nextState !== prevState) {
-      console.log(`State change: ${prevState} >>> ${nextState}`);
+        window.location.reload()
+      //console.log(`State change: ${prevState} >>> ${nextState}`);
       updateLog(`State change: ${prevState} >>> ${nextState}`)
       //if (nextState == 'active')
       //    location.reload();
-        if (nextState == 'hidden') {
-            location.reload();
+        if (nextState == 'active') {
+            console.log("REload")
+            //window.location.reload();
     }
     }
 
