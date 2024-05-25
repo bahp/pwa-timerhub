@@ -13,6 +13,7 @@ const assets = [
   '/pwa-timerhub/js/easytimer-1.1.3.min.js',
   '/pwa-timerhub/js/jquery-3.6.0.min.js',
   '/pwa-timerhub/js/pagecycle.js',
+  '/pwa-timehub/images/logo-pdx.png'
 ];
 
 /*
