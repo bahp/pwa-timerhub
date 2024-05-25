@@ -298,11 +298,11 @@
       </div>
     </div>
 
-
     <button class="btn btn-danger" onclick="location.reload()"></button>
     e
     <div id="info"></div>
     a
+
 
 
     <!-- --------------------------------- -->
@@ -968,77 +968,7 @@
       });
     }
 
-    function setUpTimer(id) {
 
-
-      AUX[id] = new Timer()
-
-      var timer = AUX[id]
-
-      var tag = '#timer-btn-' + id
-
-
-      // Configure collapse.
-      //$(tag).on('show.bs.collapse', function (e) {
-      //    if (!$(this).hasClass('counting')) {
-      //        $(this).addClass('counting') // toggleClass
-      //        e.preventDefault()
-      //    }
-      //})
-
-      //var obj = $('#timer-btn-' + id)
-
-      // enable reset
-      $(tag + ' .btn-removed').on('click', function (event) {
-        (async function() {
-          await myAlert('Hello there');
-          AUX[id].stop()
-          delete AUX[id]
-          AUX[id] = new Timer()
-          timerIdle($(tag))
-        })();
-
-
-            //if (t.isRunning()) {
-                // open modal
-                   // do you want to reset
-             //   t.stop()
-           // }
-          event.preventDefault()
-          event.stopPropagation()
-      })
-
-
-
-      // Configure click
-      $(tag).on( "click", function( event ) {
-          console.log("Button click!")
-
-        var t = AUX[id]
-
-        console.log(t.isRunning())
-
-        // if timer counting
-        if (t.isRunning())
-          return
-
-        // if timer not counting
-          // start counting
-          // prevent default
-
-
-        //$(tag).removeClass('btn-idle')
-        //$(tag).addClass('btn-success')
-
-        // Incubating should be put always. when going
-        // to zero changes
-        //$(tag + ' .pdx-timer-label').html('Incubating')
-
-        //if (!$(this).hasClass('counting')) {
-
-       behaviour3(id)
-      });
-    }
 
     /**
     // Enable radio button
@@ -1056,17 +986,6 @@
     });
     **/
 
-
-    /*
-function updateLog(message) {
-   document.getElementById("info").innerHTML =
-      document.getElementById("info").innerHTML +
-          + ' | ' + message + ' | ' +
-          new Date().toDateString() + '<br>';
-}*/
-
-    // Initialise
-    var AUX = {}
 
     // Local variables
     var _TIMERS = {}

@@ -129,6 +129,7 @@ self.addEventListener('fetch', function(event) {
 });
 */
 
+/*
 self.addEventListener('visibilitychange', function() {
   updateLog('resumedd!'+ document.visibilityState)
     if (document.visibilityState === 'visible') {
@@ -136,4 +137,15 @@ self.addEventListener('visibilitychange', function() {
         //window.location.reload();
       updateLog('resumedd!'+ document.visibilityState)
     }
-});
+});*/
+
+/*
+event.waitUntil(
+  clients.matchAll({ type: 'window' })
+    .then(function(clientList) {
+      for (var i = 0; i < clientList.length; i++) {
+        const state = clientList[i].visibilityState;
+      }
+    })
+);*/
+

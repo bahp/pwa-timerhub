@@ -1,11 +1,17 @@
 
+/*const state = document.visibilityState;
+
+document.addEventListener('visibilitychange', () => {
+  console.log(document.visibilityState);
+});*/
+
 function updateLog(message) {
 
     var msg = message + ' | ' + new Date().toTimeString() + '<br>';
     console.log(msg)
    document.getElementById("info").innerHTML =
       document.getElementById("info").innerHTML +
-          + ' | ' + message + ' | ' +
+          + ' | ' + message + ' | ' + document.visibilityState + ' | ' +
           new Date().toTimeString() + '<br>';
 }
 
@@ -27,7 +33,7 @@ const getState = () => {
   const logStateChange = (nextState) => {
     const prevState = state;
     if (nextState !== prevState) {
-        window.location.reload()
+        //window.location.reload()
       //console.log(`State change: ${prevState} >>> ${nextState}`);
       updateLog(`State change: ${prevState} >>> ${nextState}`)
       //if (nextState == 'active')
