@@ -704,10 +704,15 @@
           // Configure timer visual states
           if (timer.seconds >= 8)
             timerSuccess(obj)
-          if (timer.seconds < 8)
-            timerWarning(obj)
+          if (timer.seconds < 8) {
+              timerWarning(obj)
+              if ($('#heat-block-bell').is(":checked"))
+                  sound2.play()
+          }
           if (timer.seconds < 4) {
             timerDanger(obj)
+            if ($('#heat-block-bell').is(":checked"))
+               sound1.play()
           }
           if (timer.seconds == 0) {
               if ($('#heat-block-bell').is(":checked"))
@@ -785,6 +790,10 @@
 
     function timerWarning(obj) {
       /* Set timer style */
+      obj.addClass('btn-warning')
+      obj.removeClass('btn-success')
+      obj.removeClass('btn-idle')
+      obj.removeClass('btn-danger')
       if (obj.hasClass('btn-success')) {
         obj.removeClass('btn-success')
         obj.addClass('btn-warning')
@@ -799,6 +808,16 @@
 
     function timerDanger(obj) {
       /* Set timer style */
+      obj.removeClass('btn-warning')
+      obj.removeClass('btn-success')
+      obj.removeClass('btn-idle')
+      obj.addClass('btn-danger')
+      obj.find('.pdx-timer-label').html('Incubating')
+      obj.find('.pdx-timer-message').html(
+        PROFILE.config.text.messages.reaching
+      )
+
+        /*
       if (obj.hasClass('btn-warning')) {
         obj.removeClass('btn-warning')
         obj.addClass('btn-danger')
@@ -808,7 +827,7 @@
         )
         if ($('#heat-block-bell').is(":checked"))
           sound2.play()
-      }
+      }*/
     }
 
     function timerPastTime(obj) {

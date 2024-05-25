@@ -28,7 +28,11 @@ const getState = () => {
       updateLog(`State change: ${prevState} >>> ${nextState}`)
       //if (nextState == 'active')
       //    location.reload();
+        if (nextState == 'hidden') {
+            location.reload();
     }
+    }
+
   };
 
   // Options used for all event listeners.

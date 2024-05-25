@@ -127,13 +127,13 @@ self.addEventListener('fetch', function(event) {
     })
   );
 });
-
+*/
 
 self.addEventListener('visibilitychange', function() {
+  updateLog('resumedd!'+ document.visibilityState)
     if (document.visibilityState === 'visible') {
         console.log('APP resumed');
         //window.location.reload();
-      updateLog('resumedd!')
+      updateLog('resumedd!'+ document.visibilityState)
     }
 });
-*/
