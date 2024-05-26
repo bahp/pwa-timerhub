@@ -713,21 +713,19 @@
               obj.removeClass('btn-idle')
 
           // Configure timer visual states
-          if (timer.seconds >= 8)
-            timerSuccess(obj)
-          if (timer.seconds < 8) {
+          if (timer.seconds == 9) {
+              timerSuccess(obj)
+          } else if (timer.seconds == 7) {
               timerWarning(obj)
               if ($('#heat-block-bell').is(":checked"))
                   sound2.play()
-          }
-          if (timer.seconds < 4) {
+          } else if (timer.seconds == 4) {
             timerDanger(obj)
             if ($('#heat-block-bell').is(":checked"))
                sound1.play()
-          }
-          if (timer.seconds == 0) {
+          } else if (timer.seconds == 0) {
               if ($('#heat-block-bell').is(":checked"))
-                sound3.play()
+                  sound3.play()
               obj.find('.pdx-timer-label').html('Remove')
               behaviour2(id, 0)
           }
@@ -747,6 +745,10 @@
     function stopSound(s) {
       s.pause()
       s.currentTime = 0
+    }
+
+    function soundPlay(s) {
+
     }
 
     $('#sample-prep-bell').on('click', function (e) {
@@ -796,7 +798,8 @@
       obj.addClass('btn-success')
       obj.find('.pdx-timer-label').html('Incubating')
       obj.find('.pdx-timer-message').html(
-          PROFILE.config.text.messages.incomplete)
+        PROFILE.config.text.messages.incomplete
+      )
     }
 
     function timerWarning(obj) {
@@ -805,6 +808,11 @@
       obj.removeClass('btn-success')
       obj.removeClass('btn-idle')
       obj.removeClass('btn-danger')
+      obj.find('.pdx-timer-label').html('Incubating')
+      obj.find('.pdx-timer-message').html(
+        PROFILE.config.text.messages.incomplete
+      )
+        /*
       if (obj.hasClass('btn-success')) {
         obj.removeClass('btn-success')
         obj.addClass('btn-warning')
@@ -814,7 +822,7 @@
         )
         if ($('#heat-block-bell').is(":checked"))
           sound1.play()
-      }
+      }*/
     }
 
     function timerDanger(obj) {
@@ -866,6 +874,19 @@
 
 
 
+
+    $('[id^=timer-btn-]').on( "click", function( event ) {
+        console.log("clicked button to start/dropdown timer")
+        var id = $(this).attr('data-pdx-id')
+        if (PROFILE.timers[id].date == null) {
+          setTimerDate(id, new Date().getTime(), true) // update db
+          behaviour3(id, PROFILE.timers[id].duration)
+        }
+      });
+
+
+
+
    // Enable reset
   $('[id^=timer-btn-]').find('.btn-removed')
     .on('click', function (event) {
@@ -875,6 +896,7 @@
 
       (async function() {
         await myAlert('Hello there');
+        $('#timer-btn-' + id).removeClass('counting')
         if (_TIMERS[id] != null) {
           getOrCreateTimer(id, true) // reset
           setTimerDate(id, null, true) // update db
@@ -920,6 +942,7 @@
         event.stopPropagation()
       })**/
 
+      /*
       // Configure click
       obj.on( "click", function( event ) {
         console.log("clicked button to start/dropdown timer")
@@ -938,6 +961,7 @@
         //updateProfile(PROFILE)
         //behaviour3(id, 10)
       });
+      */
     }
 
 
@@ -960,6 +984,7 @@
       var dur = PROFILE.timers[id].duration;  // seconds
       var seconds = Math.floor((now - (ini + dur*1000)) / 1000)
 
+      console.log('[' + id + '] setUpTimerFromDB, seconds', seconds)
       // Call timer behaviour
       if (seconds > 0 ) {
         behaviour2(id, Math.abs(seconds))
