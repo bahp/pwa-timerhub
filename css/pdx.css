@@ -88,6 +88,12 @@ label:has(input[type="radio"]:checked) {
    color: var(--pdx-gray-2);
 }
 
+
+.pdx-tools {
+    font-weight: 500;
+    line-height: 1.2;
+    display: inline-block;
+}
 .pdx-icon {
     color: var(--pdx-gray-2);
     color-background: var(--pdx-gray-2);

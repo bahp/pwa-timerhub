@@ -31,11 +31,11 @@ const DEFAULT_DATA = [
         }
       },
       timers: {
-        0: { name: 0, duration: 10, date: null, interval: null, timer: null},
-        1: { name: 1, duration: 10, date: null, interval: null, timer: null},
-        2: { name: 2, duration: 10, date: null, interval: null, timer: null},
-        3: { name: 3, duration: 10, date: null, interval: null, timer: null},
-        4: { name: 4, duration: 10, date: null, interval: null, timer: null}
+        0: { name: 0, duration: 3*60, date: null, interval: null, timer: null},
+        1: { name: 1, duration: 3*60, date: null, interval: null, timer: null},
+        2: { name: 2, duration: 3*60, date: null, interval: null, timer: null},
+        3: { name: 3, duration: 3*60, date: null, interval: null, timer: null},
+        4: { name: 4, duration: 3*60, date: null, interval: null, timer: null}
       }
     }
   ]

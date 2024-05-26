@@ -279,10 +279,15 @@
         <div class="flex-grow-1 text-start">
           <a class="icon-faq" href="#">
             <!--<i class="fas fa-bell fa-2x"></i>-->
-            <h1><i class="bi bi-question-circle"></i></h1>
+            <!--<i class="bi bi-question-circle d-inline-block"></i>-->
+
+            <h1><i class="bi bi-arrow-clockwise d-inline-block"
+                    onclick="location.reload()">
+            </i></h1>
             <!--<h1><i class="bi-question-circle-fill"></i></h1>-->
             <!--<img src="./images/question-circle.svg" class="pdx-icon"/>-->
           </a>
+
         </div>
         <div class="flex-grow-1 text-end">
           <a class="icon-gear"
@@ -309,10 +314,8 @@
       </div>
     </div>
 
-    <button class="btn btn-danger" onclick="location.reload()"></button>
-    e
     <div id="info"></div>
-    a
+
 
 
 
@@ -700,12 +703,16 @@
       // Pending reset
       timer.start({
         countdown: true,
+        //precision: 'secondTenths',
         startValues: { seconds: seconds },
-        callback: function (timer) {
+        callback: function (t) {
+
+            console.log(t)
+            console.log(timer.getTotalTimeValues())
 
           // Update clock
           obj.find('.pdx-timer-clock').html(
-            timer.toString(['minutes', 'seconds'])
+            t.toString(['minutes', 'seconds'])
           )
 
           // Remove idle
@@ -713,13 +720,38 @@
               obj.removeClass('btn-idle')
 
           // Configure timer visual states
-          if (timer.seconds == 9) {
+          if ((t.hours == 0) & (t.minutes == 0) & (t.seconds == 0)) {
+            if ($('#heat-block-bell').is(":checked"))
+                sound3.play()
+            obj.find('.pdx-timer-label').html('Remove')
+            behaviour2(id, 0)
+          } else if ((t.minutes <= 0)) {
+            timerDanger(obj)
+            if ($('#heat-block-bell').is(":checked"))
+              if ((t.minutes == 0) &
+                (t.seconds >= 55) &
+                (t.seconds <= 59))
+               sound1.play()
+          } else if ((t.minutes <= 1)) {
+            timerWarning(obj)
+            if ($('#heat-block-bell').is(":checked"))
+              if ((t.minutes == 1) &
+                  (t.seconds >= 55) &
+                  (t.seconds <= 59))
+              sound2.play()
+          } else {
               timerSuccess(obj)
-          } else if (timer.seconds == 7) {
+          }
+
+
+            /*
+          if (timer.seconds <= 9) {
+              timerSuccess(obj)
+          } else if (timer.seconds <= 7) {
               timerWarning(obj)
               if ($('#heat-block-bell').is(":checked"))
                   sound2.play()
-          } else if (timer.seconds == 4) {
+          } else if (timer.seconds <= 4) {
             timerDanger(obj)
             if ($('#heat-block-bell').is(":checked"))
                sound1.play()
@@ -728,7 +760,7 @@
                   sound3.play()
               obj.find('.pdx-timer-label').html('Remove')
               behaviour2(id, 0)
-          }
+          }*/
         }
       });
     }
@@ -827,10 +859,10 @@
 
     function timerDanger(obj) {
       /* Set timer style */
+      obj.addClass('btn-danger')
       obj.removeClass('btn-warning')
       obj.removeClass('btn-success')
       obj.removeClass('btn-idle')
-      obj.addClass('btn-danger')
       obj.find('.pdx-timer-label').html('Incubating')
       obj.find('.pdx-timer-message').html(
         PROFILE.config.text.messages.reaching
