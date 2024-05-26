@@ -13,7 +13,10 @@ const assets = [
   '/pwa-timerhub/js/easytimer-1.1.3.min.js',
   '/pwa-timerhub/js/jquery-3.6.0.min.js',
   '/pwa-timerhub/js/pagecycle.js',
-  '/pwa-timehub/images/logo-pdx.png'
+  '/pwa-timerhub/images/logo-pdx.png',
+  '/pwa-timerhub/audio/mixkit-clear-announce-tones-2861.wav',
+  '/pwa-timerhub/audio/mixkit-happy-bells-notification-937.wav',
+  '/pwa-timerhub/audio/mixkit-urgent-simple-tone-loop-2976.wav',
 ];
 
 /*
