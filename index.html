@@ -637,6 +637,9 @@
               if (timer.seconds == 0) {
                 $(tag).removeClass('btn-success')
                 $(tag).addClass('btn-idle')
+                if ($('#sample-prep-bell').is(":checked")) {
+                  sound2.play()
+                }
               }
             }
           });
