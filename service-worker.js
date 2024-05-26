@@ -16,7 +16,7 @@ const assets = [
   '/pwa-timerhub/images/logo-pdx.png',
   '/pwa-timerhub/audio/mixkit-clear-announce-tones-2861.wav',
   '/pwa-timerhub/audio/mixkit-happy-bells-notification-937.wav',
-  '/pwa-timerhub/audio/mixkit-urgent-simple-tone-loop-2976.wav',
+  '/pwa-timerhub/audio/mixkit-urgent-simple-tone-loop-2976.wav'
 ];
 
 /*

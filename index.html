@@ -199,30 +199,30 @@
         Heat block
       </div>
 
-      <div data-toggle="buttons">
+      <div id='time-heat-block' data-toggle="buttons">
         <label class="btn  btn-light rounded-5 mb-2">
-          <input type="radio" name="options" id="shb1" value=1 autocomplete="off" checked> 1m
+          <input type="radio" name="settings-hb" id="shb3" value=3 autocomplete="off"> 3m
         </label>
         <label class="btn btn-light rounded-5 mb-2">
-          <input type="radio" name="options" id="shb15" value=15 autocomplete="off"> 15m
+          <input type="radio" name="settings-hb" id="shb15" value=15 autocomplete="off" checked> 15m
         </label>
         <label class="btn btn-light rounded-5 mb-2">
-          <input type="radio" name="options" id="shb20" value=20 autocomplete="off"> 20m
+          <input type="radio" name="settings-hb" id="shb20" value=20 autocomplete="off"> 20m
         </label>
         <label class="btn btn-light rounded-5 mb-2">
-          <input type="radio" name="options" id="shb25" value=25 autocomplete="off"> 25m
+          <input type="radio" name="settings-hb" id="shb25" value=25 autocomplete="off"> 25m
         </label>
         <label class="btn btn-light rounded-5 mb-2">
-          <input type="radio" name="options" id="shb30" value=30 autocomplete="off"> 30m
+          <input type="radio" name="settings-hb" id="shb30" value=30 autocomplete="off"> 30m
         </label>
         <label class="btn btn-light rounded-5 mb-2">
-          <input type="radio" name="options" id="shb35" value=35 autocomplete="off"> 35m
+          <input type="radio" name="settings-hb" id="shb35" value=35 autocomplete="off"> 35m
         </label>
         <label class="btn btn-light rounded-5 mb-2">
-          <input type="radio" name="options" id="shb40" value=40 autocomplete="off"> 40m
+          <input type="radio" name="settings-hb" id="shb40" value=40 autocomplete="off"> 40m
         </label>
         <label class="btn btn-light rounded-5 mb-2">
-          <input type="radio" name="options" id="shb45" value=45 autocomplete="off"> 45m
+          <input type="radio" name="settings-hb" id="shb45" value=45 autocomplete="off"> 45m
         </label>
       </div>
 
@@ -707,9 +707,6 @@
         startValues: { seconds: seconds },
         callback: function (t) {
 
-            console.log(t)
-            console.log(timer.getTotalTimeValues())
-
           // Update clock
           obj.find('.pdx-timer-clock').html(
             t.toString(['minutes', 'seconds'])
@@ -719,6 +716,18 @@
           if (obj.hasClass('btn-idle'))
               obj.removeClass('btn-idle')
 
+          /*
+           * It is possible to use _TIMER[id].getTotalTimeValues()
+           * which tells you the amount of 'seconds' remaining if it
+           * is a countdown.
+           *
+           * Hence, this two are equivalent
+           * if ((t.minutes == 1) & (t.seconds >= 55) & (t.seconds <= 59))
+           *
+           * rem = _TIMER[id].getTotalTimeValues()
+           * if ((rem >= 60+55) & (rem <= 50+59))
+           */
+          sound2.play()
           // Configure timer visual states
           if ((t.hours == 0) & (t.minutes == 0) & (t.seconds == 0)) {
             if ($('#heat-block-bell').is(":checked"))
@@ -1038,21 +1047,21 @@
 
 
 
-    /**
+    /*
     // Enable radio button
     $('#time-heat-block input').on('change', function() {
-      var val = $('input[name="timehb"]:checked').val();
-      //console.log(val)
+      var val = $('input[name="settings-hb"]:checked').val();
+      console.log(val)
       //PROFILE.config.periods.hb = Number(val) * 60;
-
+      console.log('eh')
       for (const [key, value] of Object.entries(PROFILE.timers)) {
         if (key > 0) {
           value.duration = Number(val) * 60;
         }
       }
       updateProfile(PROFILE)
-    });
-    **/
+    });*/
+
 
 
     // Local variables
