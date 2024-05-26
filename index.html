@@ -186,7 +186,7 @@
         Sample Preparation
       </div>
 
-      <div data-toggle="buttons">
+      <div id='settings-time-sample-preparation' data-toggle="buttons">
         <label class="btn  btn-light rounded-5 mb-2">
           <input type="radio" name="settings-sp" id="ssp30" value=30 autocomplete="off" checked> 30s
         </label>
@@ -199,12 +199,12 @@
         Heat block
       </div>
 
-      <div id='time-heat-block' data-toggle="buttons">
+      <div id='settings-time-heat-block' data-toggle="buttons">
         <label class="btn  btn-light rounded-5 mb-2">
-          <input type="radio" name="settings-hb" id="shb3" value=3 autocomplete="off"> 3m
+          <input type="radio" name="settings-hb" id="shb3" value=3 autocomplete="off" checked> 3m
         </label>
         <label class="btn btn-light rounded-5 mb-2">
-          <input type="radio" name="settings-hb" id="shb15" value=15 autocomplete="off" checked> 15m
+          <input type="radio" name="settings-hb" id="shb15" value=15 autocomplete="off"> 15m
         </label>
         <label class="btn btn-light rounded-5 mb-2">
           <input type="radio" name="settings-hb" id="shb20" value=20 autocomplete="off"> 20m
@@ -314,9 +314,8 @@
       </div>
     </div>
 
-    <!--
-    <div id="info"></div>
-    -->
+    <div id="info" class="d-none"></div>
+
 
 
 
@@ -570,7 +569,9 @@
 
 
     function setTimerDate(id, value, updateDB) {
+      var duration = $('input[name="settings-hb"]:checked').val()
       PROFILE.timers[id].date = value
+      PROFILE.timers[id].duration = Number(duration) * 60;
       if (updateDB)
         updateProfile(PROFILE)
     }
@@ -623,9 +624,12 @@
         $(tag).addClass('btn-success')
 
         if (!_TIMERS[id].isRunning()) {
+
+          var duration = $('input[name="settings-sp"]:checked').val()
+
           timer.start({
             countdown: true,
-            startValues: { seconds: 60 },
+            startValues: { seconds: Number(duration) },
             callback: function (timer) {
               $('#timer-sample-prep .pdx-timer-clock').html(
                 timer.toString(timeFormat(timer))
@@ -930,13 +934,13 @@
 
 
     $('[id^=timer-btn-]').on( "click", function( event ) {
-        console.log("clicked button to start/dropdown timer")
-        var id = $(this).attr('data-pdx-id')
-        if (PROFILE.timers[id].date == null) {
-          setTimerDate(id, new Date().getTime(), true) // update db
-          behaviour3(id, PROFILE.timers[id].duration)
-        }
-      });
+      console.log("clicked button to start/dropdown timer")
+      var id = $(this).attr('data-pdx-id')
+      if (PROFILE.timers[id].date == null) {
+        setTimerDate(id, new Date().getTime(), true) // update db
+        behaviour3(id, PROFILE.timers[id].duration)
+      }
+    });
 
 
 
@@ -1030,6 +1034,16 @@
         return
       }
 
+
+      // if no date
+        // create empty timer
+      // else
+        // activate counting
+        // get time from start
+        // run timer behaviour
+
+
+      if (PROFILE.timers[id]. date == null)
       $('#timer-btn-' + id).addClass('counting')
 
       // Get start value in seconds
