@@ -20,13 +20,13 @@
       "type": "image/png"
     },
     {
-      "src": "images/logo-pdx.png",
+      "src": "images/logo-pdx-192.png",
       "type": "image/png",
       "sizes": "192x192",
       "purpose": "any maskable"
     },
     {
-      "src": "images/logo-pdx.png",
+      "src": "images/logo-pdx-512.png",
       "type": "image/png",
       "sizes": "512x512",
       "purpose": "any"
