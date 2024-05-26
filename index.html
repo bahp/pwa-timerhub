@@ -314,8 +314,9 @@
       </div>
     </div>
 
+    <!--
     <div id="info"></div>
-
+    -->
 
 
 
@@ -354,7 +355,7 @@
     <!-- ----------------- -->
     <!-- Mix/Dry           -->
     <!-- ----------------- -->
-    <button id="timer-btn-0" type="button"
+    <button id="timer-sample-prep" type="button"
             class="btn btn-idle rounded-5 w-100 mb-2 mt-2">
 
       <!-- header -->
@@ -613,7 +614,8 @@
       var timer = new Timer()
       _TIMERS[id] = timer
       // Create tag
-      var tag = '#timer-btn-' + id
+      //var tag = '#timer-btn-' + id
+      var tag = '#timer-sample-prep'
 
       // Configure click
       $(tag).on( "click", function( event ) {
@@ -625,7 +627,7 @@
             countdown: true,
             startValues: { seconds: 60 },
             callback: function (timer) {
-              $('#timer-btn-' + id + ' .pdx-timer-clock').html(
+              $('#timer-sample-prep .pdx-timer-clock').html(
                 timer.toString(timeFormat(timer))
               );
               if (timer.seconds == 0) {
@@ -716,6 +718,7 @@
           if (obj.hasClass('btn-idle'))
               obj.removeClass('btn-idle')
 
+
           /*
            * It is possible to use _TIMER[id].getTotalTimeValues()
            * which tells you the amount of 'seconds' remaining if it
@@ -727,7 +730,10 @@
            * rem = _TIMER[id].getTotalTimeValues()
            * if ((rem >= 60+55) & (rem <= 50+59))
            */
-          sound2.play()
+            //if (t.minutes == 2)
+            //    if (t.seconds >= 30)
+            //      sound3.play()
+
           // Configure timer visual states
           if ((t.hours == 0) & (t.minutes == 0) & (t.seconds == 0)) {
             if ($('#heat-block-bell').is(":checked"))
@@ -743,11 +749,18 @@
                sound1.play()
           } else if ((t.minutes <= 1)) {
             timerWarning(obj)
-            if ($('#heat-block-bell').is(":checked"))
-              if ((t.minutes == 1) &
-                  (t.seconds >= 55) &
-                  (t.seconds <= 59))
-              sound2.play()
+            if ($('#heat-block-bell').is(":checked")) {
+                if ((t.minutes == 1) &
+                    (t.seconds >= 55) &
+                    (t.seconds <= 59)) {
+                    updateLog('play')
+                    try {
+                        sound2.play()
+                    } catch(err) {
+                    updateLog(err)
+                  }
+                }
+            }
           } else {
               timerSuccess(obj)
           }
@@ -1071,6 +1084,14 @@
     $(document).ready(function() {
 
        iosPWASplash('./images/logo-pdx.png', '#FFFFFF');
+
+      /*
+      sound1.play()
+      stopSound(sound1)
+      sound2.play()
+      stopSound(sound2)
+      sound3.play()
+      stopSound(sound3)*/
 
       // Create database if it does not exist
       createDatabase(reset=false).then(function(result) {
