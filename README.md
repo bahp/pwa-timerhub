@@ -1,13 +1,4 @@
 
-[link1]: https://stackoverflow.com/questions/50300453/how-to-know-if-a-progressive-web-app-is-in-foreground-or-background
-[link2]: https://github.com/whatwg/notifications/pull/127
-[link3]: https://developer.chrome.com/docs/web-platform/notification-triggers
-[link4]: https://stackoverflow.com/questions/58240785/is-it-possible-to-set-the-alarm-by-pwa-building-a-timer-alarm-clock-app
-[link5]: https://stackoverflow.com/questions/71556191/send-a-notification-when-pwa-is-closed
-[link6]: https://stackoverflow.com/questions/70611006/can-a-pwa-schedule-notifications-when-closed
-[link7]: https://www.w3.org/TR/task-scheduler/
-[link8]: https://developer.mozilla.org/en-US/docs/Web/API/Web_Periodic_Background_Synchronization_API
-  
 # PWA TimerHub
 
 Welcome to TimerHub a Progressive Web App (PWA) designed to provide 
@@ -96,6 +87,8 @@ While these workarounds can help, they do not provide a comprehensive solution.
 
 #### Sound compatibility
 
+<!-- https://stackoverflow.com/questions/75226411/getting-a-non-user-tap-sound-to-play-on-ios-mobile-web -->
+
 Sound might not work on web apps or Progressive Web Apps (PWAs) without user interaction 
 due to browser security policies designed to prevent unwanted and intrusive audio playback. 
 Most modern browsers enforce a rule that requires user interaction, such as a click or tap, 
@@ -104,18 +97,16 @@ experience and are not subjected to unexpected or disruptive sounds. Consequentl
 app or PWA attempts to play sound automatically upon loading or in the background, it will 
 likely be blocked by the browser until the user interacts with the app.
 
-<div style="background-color: #fff3cd; color: #856404; border-color: #ffeeba; border-left: 6px solid; padding: 0.75em;">
-    <strong>Warning:</strong> iOS, both with Chrome and Safari don't allow sounds unless initiated by a user action. The delay kills the sound.
+> **Warning:**
+> iOS, both with Chrome and Safari don't allow sounds unless initiated by a user action. 
+> In addition, the delay kills the sound.
 
-</div>
-
-iOS, both with Chrome and Safari don't allow sounds unless initiated by a user action. The delay kills the sound.
 
 - Workaround 1: Initialize with volume off and prompt the user to initialize audio. [![](https://img.shields.io/badge/Implemented-brightgreen)]()
 
-<span> Webapp &#10004</span> | <span> Android &#10004</span> | <span> iOS &#10008</span>
+<span> Webapp &#10004</span> | <span> Android &#10004</span> | <span> iOS &#10004</span>
 
-<!--
+<!-- 10008
 - [x] Webapp
 - [x] Android
 - [ ] iOS
@@ -135,6 +126,28 @@ IT uses Service Workers
 https://web.dev/learn/pwa/service-workers?hl=es-419
 https://web.dev/articles/add-manifest?hl=es-419
 -->
+
+## Interesting links
+
+[link1]: https://stackoverflow.com/questions/50300453/how-to-know-if-a-progressive-web-app-is-in-foreground-or-background
+[link2]: https://github.com/whatwg/notifications/pull/127
+[link3]: https://developer.chrome.com/docs/web-platform/notification-triggers
+[link4]: https://stackoverflow.com/questions/58240785/is-it-possible-to-set-the-alarm-by-pwa-building-a-timer-alarm-clock-app
+[link5]: https://stackoverflow.com/questions/71556191/send-a-notification-when-pwa-is-closed
+[link6]: https://stackoverflow.com/questions/70611006/can-a-pwa-schedule-notifications-when-closed
+[link7]: https://www.w3.org/TR/task-scheduler/
+[link8]: https://developer.mozilla.org/en-US/docs/Web/API/Web_Periodic_Background_Synchronization_API
+  
+Here are some useful links related to Progressive Web Apps (PWAs).
+
+- [StackOverflow: How to know if PWA is in foreground orBackground][link1]
+- [StackOverflow: Is it possible to set alarm by PWA?][link4]
+- [StackOverflow: Send a notification when PWA is closed][link5]
+- [StackOverflow: Can PWA schedule notifications when closed?][link6]
+- [Task Scheduler API - 2015][link7]
+- [Notification Triggers API][link3]
+- [Web Periodic Backgrond Syncrhonization API][link8]
+
 
 ## Feedback and Support
 If you encounter any issues, have suggestions for improvements, or need 
