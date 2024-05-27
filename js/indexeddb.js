@@ -46,7 +46,7 @@ const DEFAULT_DATA = [
 // Helper methods
 // --------------------------------------------------
 function indexedDBSupport(){
-return 'indexedDB' in window;
+  return 'indexedDB' in window;
 }
 
 async function createDatabase(reset=false) {
@@ -67,7 +67,7 @@ async function createDatabase(reset=false) {
        };
        rq.onblocked = function (e) {
          console.log("blocked: " + e);
-         // Close connections here
+         e.target.result.close()
        };
        rq.onerror = function (e) {
          console.log("error: " + e);
@@ -88,8 +88,14 @@ async function createDatabase(reset=false) {
      }
 
      request.onerror = (event) => {
-         console.error(`IndexedDB error: ${request.errorCode}`);
+         console.error(`IndexedDB error (onerror): ${request.errorCode}`);
+         resolve(request.result)
      };
+
+     request.onblocked = (event) => {
+         console.error(`IndexedDB error (onblocked): ${request.errorCode}`);
+         resolve(request.result)
+     }
 
      request.onupgradeneeded = (event) => {
          console.info('Database created!');

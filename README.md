@@ -88,7 +88,7 @@ pages to conserve battery life. Overall, advanced scheduling and background task
 necessitate a native app.
 
 - Workaround 1: Refresh the page manually. [![](https://img.shields.io/badge/Implemented-brightgreen)]()
-- Workaround 2: the refresh on page visibility change (see pagecycle.js) [not working yet]
+- Workaround 2: the refresh on page visibility change (see pagecycle.js) [![](https://img.shields.io/badge/progress-yellow)]()
 - Workaround 3: Push notifications are another approach, but they require an internet connection and 
 do not guarantee timely delivery.
 
@@ -104,7 +104,15 @@ experience and are not subjected to unexpected or disruptive sounds. Consequentl
 app or PWA attempts to play sound automatically upon loading or in the background, it will 
 likely be blocked by the browser until the user interacts with the app.
 
-- Workaround 1: Initialize with volume off and prompt the user to initialize audio.
+- Workaround 1: Initialize with volume off and prompt the user to initialize audio. [![](https://img.shields.io/badge/Implemented-brightgreen)]()
+
+<span> Webapp &#10004</span> | <span> Android &#10004</span> | <span> iOS &#10008</span>
+
+<!--
+- [x] Webapp
+- [x] Android
+- [ ] iOS
+-->
 
 #### Offline functionality
 
