@@ -79,7 +79,7 @@ pages to conserve battery life. Overall, advanced scheduling and background task
 necessitate a native app.
 
 - Workaround 1: Refresh the page manually. [![](https://img.shields.io/badge/Implemented-brightgreen)]()
-- Workaround 2: the refresh on page visibility change (see pagecycle.js) [![](https://img.shields.io/badge/progress-yellow)]()
+- Workaround 2: the refresh on page visibility change (see pagecycle.js) [![](https://img.shields.io/badge/not_working-yellow)]()
 - Workaround 3: Push notifications are another approach, but they require an internet connection and 
 do not guarantee timely delivery.
 
