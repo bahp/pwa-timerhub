@@ -171,58 +171,62 @@
                 data-bs-dismiss="offcanvas" aria-label="Close">
         </button>
       </div>
-      <div class="offcanvas-body">
-        <div class="text-start pb-3">
-          Select default time for sample preparation and incubation
+      <div class="offcanvas-body d-flex flex-column">
+        <div>
+          <div class="text-start pb-3">
+            Select default time for sample preparation and incubation
+          </div>
+
+          <div class="text-start pdx-title">
+            Sample Preparation
+          </div>
+
+          <div id='settings-time-sample-preparation' data-toggle="buttons">
+            <label class="btn  btn-light rounded-5 mb-2">
+              <input type="radio" name="settings-sp" id="ssp30" value=30 autocomplete="off" checked> 30s
+            </label>
+            <label class="btn btn-light rounded-5 mb-2">
+              <input type="radio" name="settings-sp" id="ssp60" value=60 autocomplete="off"> 60s
+            </label>
+          </div>
+
+          <div class="text-start pdx-title pt-3">
+            Heat block
+          </div>
+
+          <div id='settings-time-heat-block' data-toggle="buttons">
+            <label class="btn  btn-light rounded-5 mb-2">
+              <input type="radio" name="settings-hb" id="shb3" value=3 autocomplete="off" checked> 3m
+            </label>
+            <label class="btn btn-light rounded-5 mb-2">
+              <input type="radio" name="settings-hb" id="shb15" value=15 autocomplete="off"> 15m
+            </label>
+            <label class="btn btn-light rounded-5 mb-2">
+              <input type="radio" name="settings-hb" id="shb20" value=20 autocomplete="off"> 20m
+            </label>
+            <label class="btn btn-light rounded-5 mb-2">
+              <input type="radio" name="settings-hb" id="shb25" value=25 autocomplete="off"> 25m
+            </label>
+            <label class="btn btn-light rounded-5 mb-2">
+              <input type="radio" name="settings-hb" id="shb30" value=30 autocomplete="off"> 30m
+            </label>
+            <label class="btn btn-light rounded-5 mb-2">
+              <input type="radio" name="settings-hb" id="shb35" value=35 autocomplete="off"> 35m
+            </label>
+            <label class="btn btn-light rounded-5 mb-2">
+              <input type="radio" name="settings-hb" id="shb40" value=40 autocomplete="off"> 40m
+            </label>
+            <label class="btn btn-light rounded-5 mb-2">
+              <input type="radio" name="settings-hb" id="shb45" value=45 autocomplete="off"> 45m
+            </label>
+          </div>
         </div>
 
-        <div class="text-start pdx-title">
-          Sample Preparation
-        </div>
-
-        <div id='settings-time-sample-preparation' data-toggle="buttons">
-          <label class="btn  btn-light rounded-5 mb-2">
-            <input type="radio" name="settings-sp" id="ssp30" value=30 autocomplete="off" checked> 30s
-          </label>
-          <label class="btn btn-light rounded-5 mb-2">
-            <input type="radio" name="settings-sp" id="ssp60" value=60 autocomplete="off"> 60s
-          </label>
-        </div>
-
-        <div class="text-start pdx-title pt-3">
-          Heat block
-        </div>
-
-        <div id='settings-time-heat-block' data-toggle="buttons">
-          <label class="btn  btn-light rounded-5 mb-2">
-            <input type="radio" name="settings-hb" id="shb3" value=3 autocomplete="off" checked> 3m
-          </label>
-          <label class="btn btn-light rounded-5 mb-2">
-            <input type="radio" name="settings-hb" id="shb15" value=15 autocomplete="off"> 15m
-          </label>
-          <label class="btn btn-light rounded-5 mb-2">
-            <input type="radio" name="settings-hb" id="shb20" value=20 autocomplete="off"> 20m
-          </label>
-          <label class="btn btn-light rounded-5 mb-2">
-            <input type="radio" name="settings-hb" id="shb25" value=25 autocomplete="off"> 25m
-          </label>
-          <label class="btn btn-light rounded-5 mb-2">
-            <input type="radio" name="settings-hb" id="shb30" value=30 autocomplete="off"> 30m
-          </label>
-          <label class="btn btn-light rounded-5 mb-2">
-            <input type="radio" name="settings-hb" id="shb35" value=35 autocomplete="off"> 35m
-          </label>
-          <label class="btn btn-light rounded-5 mb-2">
-            <input type="radio" name="settings-hb" id="shb40" value=40 autocomplete="off"> 40m
-          </label>
-          <label class="btn btn-light rounded-5 mb-2">
-            <input type="radio" name="settings-hb" id="shb45" value=45 autocomplete="off"> 45m
-          </label>
-        </div>
-
-        <div class="d-flex h-25 align-items-end"> <!-- but align to bottom h-100 is too large -->
+        <!--
+        <div class="flex-grow-1 align-content-end">
           <button id='reset-db' class="btn btn-danger w-100 rounded-5 bottom-0">Reset</button>
         </div>
+        -->
 
       </div>
     </div>
