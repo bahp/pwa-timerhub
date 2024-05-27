@@ -104,6 +104,13 @@ experience and are not subjected to unexpected or disruptive sounds. Consequentl
 app or PWA attempts to play sound automatically upon loading or in the background, it will 
 likely be blocked by the browser until the user interacts with the app.
 
+<div style="background-color: #fff3cd; color: #856404; border-color: #ffeeba; border-left: 6px solid; padding: 0.75em;">
+    <strong>Warning:</strong> iOS, both with Chrome and Safari don't allow sounds unless initiated by a user action. The delay kills the sound.
+
+</div>
+
+iOS, both with Chrome and Safari don't allow sounds unless initiated by a user action. The delay kills the sound.
+
 - Workaround 1: Initialize with volume off and prompt the user to initialize audio. [![](https://img.shields.io/badge/Implemented-brightgreen)]()
 
 <span> Webapp &#10004</span> | <span> Android &#10004</span> | <span> iOS &#10008</span>
