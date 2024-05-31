@@ -23,6 +23,7 @@ const DEFAULT_DATA = [
           messages: {
             incomplete: "<strong>Caution</strong> Incubation might not be complete.",
             reaching: "<strong>Caution</strong> Incubation is almost complete.",
+            completed: "<strong>Caution</strong> Remove panel from Heat Block.",
             pastTime: "<strong>Caution</strong> Panel incubated significantly past set time. Remove panel from heat block and see IFU."
           }
         },
@@ -32,12 +33,16 @@ const DEFAULT_DATA = [
         }
       },
       timers: {
-        0: { name: 0, duration: 3*60, date: null, interval: null, timer: null},
-        1: { name: 1, duration: 3*60, date: null, interval: null, timer: null},
-        2: { name: 2, duration: 3*60, date: null, interval: null, timer: null},
-        3: { name: 3, duration: 3*60, date: null, interval: null, timer: null},
-        4: { name: 4, duration: 3*60, date: null, interval: null, timer: null}
-      }
+        0: { name: 0, duration: null, date: null, interval: null, timer: null},
+        1: { name: 1, duration: null, date: null, interval: null, timer: null},
+        2: { name: 2, duration: null, date: null, interval: null, timer: null},
+        3: { name: 3, duration: null, date: null, interval: null, timer: null},
+        4: { name: 4, duration: null, date: null, interval: null, timer: null},
+        5: { name: 5, duration: null, date: null, interval: null, timer: null},
+        6: { name: 6, duration: null, date: null, interval: null, timer: null},
+        7: { name: 7, duration: null, date: null, interval: null, timer: null},
+        8: { name: 8, duration: null, date: null, interval: null, timer: null},
+       }
     }
   ]
 

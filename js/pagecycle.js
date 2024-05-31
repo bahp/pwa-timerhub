@@ -7,12 +7,14 @@ document.addEventListener('visibilitychange', () => {
 
 function updateLog(message) {
 
+  /**
     var msg = message + ' | ' + new Date().toTimeString() + '<br>';
     console.log(msg)
    document.getElementById("info").innerHTML =
       document.getElementById("info").innerHTML
           + ' | ' + message + ' | ' + document.visibilityState + ' | ' +
           new Date().toTimeString() + '<br>';
+   */
 }
 
 const getState = () => {

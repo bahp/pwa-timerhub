@@ -181,7 +181,7 @@
             Sample Preparation
           </div>
 
-          <div id='settings-time-sample-preparation' data-toggle="buttons" disabled>
+          <div id='settings-time-sample-preparation' data-toggle="buttons">
             <label class="btn  btn-light rounded-5 mb-2">
               <input type="radio" name="settings-sp" id="ssp30" value=30 autocomplete="off" checked> 30s
             </label>
@@ -196,7 +196,7 @@
 
           <div id='settings-time-heat-block' data-toggle="buttons">
             <label class="btn  btn-light rounded-5 mb-2">
-              <input type="radio" name="settings-hb" id="shb3" value=3 autocomplete="off"> 3m
+              <input type="radio" name="settings-hb" id="shb3" value=1 autocomplete="off" checked> 3m
             </label>
             <label class="btn btn-light rounded-5 mb-2">
               <input type="radio" name="settings-hb" id="shb15" value=15 autocomplete="off"> 15m
@@ -205,7 +205,7 @@
               <input type="radio" name="settings-hb" id="shb20" value=20 autocomplete="off"> 20m
             </label>
             <label class="btn btn-light rounded-5 mb-2">
-              <input type="radio" name="settings-hb" id="shb25" value=25 autocomplete="off" checked> 25m
+              <input type="radio" name="settings-hb" id="shb25" value=25 autocomplete="off"> 25m
             </label>
             <label class="btn btn-light rounded-5 mb-2">
               <input type="radio" name="settings-hb" id="shb30" value=30 autocomplete="off"> 30m
@@ -237,14 +237,13 @@
     <!-- ----------------- -->
     <div class="row p-2 pt-1">
       <div class="d-flex">
-
         <div class="flex-grow-1 text-start">
           <a class="icon-faq" href="#">
             <!--<i class="fas fa-bell fa-2x"></i>-->
-            <h1><i class="bi bi-question-circle d-inline-block"></i></h1>
-            <!--<h1><i class="bi bi-arrow-clockwise d-inline-block"
+            <!--<i class="bi bi-question-circle d-inline-block"></i>-->
+            <h1><i class="bi bi-arrow-clockwise d-inline-block"
                     onclick="location.reload()">
-            </i></h1>-->
+            </i></h1>
             <!--<h1><i class="bi-question-circle-fill"></i></h1>-->
             <!--<img src="./images/question-circle.svg" class="pdx-icon"/>-->
           </a>
@@ -280,12 +279,10 @@
     <!-- Hidden            -->
     <!-- ----------------- -->
     <!--<div id="info" class="d-none"></div>-->
-    <!--<audio id="bg-audio-prep" src="./audio/mixkit-happy-bells-notification-937.wav"></audio>-->
-    <audio id="bg-audio-prep" src="./audio/beep-seconds.mp3"></audio>
-    <!--<audio id="bg-audio-warn" src="./audio/mixkit-happy-bells-notification-937.wav"></audio>-->
-    <!--<audio id="bg-audio-danger" src="./audio/mixkit-clear-announce-tones-2861.wav"></audio>-->
-    <audio id="bg-audio-danger" src="./audio/beep-minutes.mp3"></audio>
-    <!--<audio id="bg-audio-past" src="./audio/mixkit-urgent-simple-tone-loop-2976.wav"></audio>-->
+    <audio id="bg-audio-prep" src="./audio/mixkit-happy-bells-notification-937.wav"></audio>
+    <audio id="bg-audio-warn" src="./audio/mixkit-happy-bells-notification-937.wav"></audio>
+    <audio id="bg-audio-danger" src="./audio/mixkit-clear-announce-tones-2861.wav"></audio>
+    <audio id="bg-audio-past" src="./audio/mixkit-urgent-simple-tone-loop-2976.wav"></audio>
 
 
     <!-- --------------------------------- -->
@@ -325,7 +322,7 @@
         <div class="pdx-timer-id d-none"></div>
         <div class="pdx-timer-label"> Mix/Dry </div>
         <div class="pdx-timer-clock flex-grow-1">
-          00:30
+          00:00
         </div>
       </div>
 
@@ -333,12 +330,12 @@
 
 
     <!-- --------------------------------- -->
-    <!-- Heat Block A                      -->
+    <!-- Second Group                      -->
     <!-- --------------------------------- -->
     <div class="w-100 mt-5">
       <div class="d-flex justify-content-between w-100 pr-5">
         <div class="p-2 bd-highlight pdx-title">
-          Heat Block 1
+          Heat Block
         </div>
         <div class="p-2 bd-highlight">
           <div class="form-check form-switch">
@@ -357,7 +354,7 @@
     </div>
 
 
-    <div id="heat-block-a">
+    <div id="heat-block">
 
       <!-- ----------------- -->
       <!-- Timer 1           -->
@@ -372,6 +369,7 @@
           <div class="pdx-timer-id"> 1 </div>
           <div class="pdx-timer-label"> Start </div>
           <div class="pdx-timer-clock flex-grow-1">
+            00:00
           </div>
         </div>
 
@@ -384,7 +382,7 @@
             </div>
             <div class="flex-grow-1 p-1">
               <a class="btn btn-removed rounded-5 w-100"
-                 data-pdx-id=1
+                 data-pdx-id="1"
                  data-bs-toggle="modal"
                  data-bs-target="#staticBackdrop">Removed</a>
             </div>
@@ -405,6 +403,7 @@
           <div class="pdx-timer-id"> 2 </div>
           <div class="pdx-timer-label"> Start </div>
           <div class="pdx-timer-clock flex-grow-1">
+            00:00
           </div>
         </div>
 
@@ -417,7 +416,7 @@
             </div>
             <div class="flex-grow-1 p-1">
               <a class="btn btn-removed rounded-5 w-100"
-                 data-pdx-id=2
+                 data-pdx-id="2"
                  data-bs-toggle="modal"
                  data-bs-target="#staticBackdrop">Removed</a>
             </div>
@@ -439,6 +438,7 @@
           <div class="pdx-timer-id"> 3 </div>
           <div class="pdx-timer-label"> Start </div>
           <div class="pdx-timer-clock flex-grow-1">
+            00:00
           </div>
         </div>
 
@@ -451,7 +451,7 @@
             </div>
             <div class="flex-grow-1 p-1">
               <a class="btn btn-removed rounded-5 w-100"
-                 data-pdx-id=3
+                 data-pdx-id="3"
                  data-bs-toggle="modal"
                  data-bs-target="#staticBackdrop">Removed</a>
             </div>
@@ -463,6 +463,7 @@
       <!-- ----------------- -->
       <!-- Timer 4           -->
       <!-- ----------------- -->
+      <div id="wrapper">
       <button id="timer-btn-4" data-pdx-id=4 type="button"
               class="btn btn-idle rounded-5 w-100 mb-2 mt-2" role="alert"
               data-bs-toggle="collapse" data-bs-target="#collapse-4"
@@ -473,6 +474,7 @@
           <div class="pdx-timer-id"> 4 </div>
           <div class="pdx-timer-label"> Start </div>
           <div class="pdx-timer-clock flex-grow-1">
+            00:00
           </div>
         </div>
 
@@ -485,167 +487,16 @@
             </div>
             <div class="flex-grow-1 p-1">
               <a class="btn btn-removed rounded-5 w-100"
-                 data-pdx-id=4
+                 data-pdx-id="4"
                  data-bs-toggle="modal"
                  data-bs-target="#staticBackdrop">Removed</a>
             </div>
           </div>
         </div>
       </button>
-    </div>
-
-
-
-    <!-- --------------------------------- -->
-    <!-- Heat Block B                      -->
-    <!-- --------------------------------- -->
-    <div class="w-100 mt-5">
-      <div class="d-flex justify-content-between w-100 pr-5">
-        <div class="p-2 bd-highlight pdx-title">
-          Heat Block 2
-        </div>
       </div>
-    </div>
-
-
-    <div id="heat-block-b" style="padding-bottom:50px;">
-
-      <!-- ----------------- -->
-      <!-- Timer 5           -->
-      <!-- ----------------- -->
-      <button id="timer-btn-5" data-pdx-id=5 type="button"
-              class="btn btn-idle rounded-5 w-100 mb-2 mt-2" role="alert"
-              data-bs-toggle="collapse" data-bs-target="#collapse-5"
-              aria-expanded="false" aria-controls="collapse-5">
-
-        <!-- header -->
-        <div class="d-flex justify-content-between w-100 pr-5">
-          <div class="pdx-timer-id"> 1 </div>
-          <div class="pdx-timer-label"> Start </div>
-          <div class="pdx-timer-clock flex-grow-1">
-          </div>
-        </div>
-
-        <!-- content -->
-        <div class="collapse w-100" id="collapse-5">
-          <div class="pdx-timer-message"></div>
-          <div class="d-flex w-100">
-            <div class="flex-grow-1 p-1">
-              <a class="btn btn-back rounded-5 w-100">Back</a>
-            </div>
-            <div class="flex-grow-1 p-1">
-              <a class="btn btn-removed rounded-5 w-100"
-                 data-pdx-id=5
-                 data-bs-toggle="modal"
-                 data-bs-target="#staticBackdrop">Removed</a>
-            </div>
-          </div>
-        </div>
-      </button>
-
-      <!-- ----------------- -->
-      <!-- Timer 6           -->
-      <!-- ----------------- -->
-      <button id="timer-btn-6" data-pdx-id=6 type="button"
-              class="btn btn-idle rounded-5 w-100 mb-2 mt-2" role="alert"
-              data-bs-toggle="collapse" data-bs-target="#collapse-6"
-              aria-expanded="false" aria-controls="collapse-6">
-
-        <!-- header -->
-        <div class="d-flex justify-content-between w-100 pr-5">
-          <div class="pdx-timer-id"> 2 </div>
-          <div class="pdx-timer-label"> Start </div>
-          <div class="pdx-timer-clock flex-grow-1">
-          </div>
-        </div>
-
-        <!-- content -->
-        <div class="collapse w-100" id="collapse-6">
-          <div class="pdx-timer-message"></div>
-          <div class="d-flex w-100">
-            <div class="flex-grow-1 p-1">
-              <a class="btn btn-back rounded-5 w-100">Back</a>
-            </div>
-            <div class="flex-grow-1 p-1">
-              <a class="btn btn-removed rounded-5 w-100"
-                 data-pdx-id=6
-                 data-bs-toggle="modal"
-                 data-bs-target="#staticBackdrop">Removed</a>
-            </div>
-          </div>
-        </div>
-      </button>
-
-
-      <!-- ----------------- -->
-      <!-- Timer 7           -->
-      <!-- ----------------- -->
-      <button id="timer-btn-7" data-pdx-id=7 type="button"
-              class="btn btn-idle rounded-5 w-100 mb-2 mt-2" role="alert"
-              data-bs-toggle="collapse" data-bs-target="#collapse-7"
-              aria-expanded="false" aria-controls="collapse-7">
-
-        <!-- header -->
-        <div class="d-flex justify-content-between w-100 pr-5">
-          <div class="pdx-timer-id"> 3 </div>
-          <div class="pdx-timer-label"> Start </div>
-          <div class="pdx-timer-clock flex-grow-1">
-          </div>
-        </div>
-
-        <!-- content -->
-        <div class="collapse w-100" id="collapse-7">
-          <div class="pdx-timer-message"></div>
-          <div class="d-flex w-100">
-            <div class="flex-grow-1 p-1">
-              <a class="btn btn-back rounded-5 w-100">Back</a>
-            </div>
-            <div class="flex-grow-1 p-1">
-              <a class="btn btn-removed rounded-5 w-100"
-                 data-pdx-id=7
-                 data-bs-toggle="modal"
-                 data-bs-target="#staticBackdrop">Removed</a>
-            </div>
-          </div>
-        </div>
-      </button>
-
-
-      <!-- ----------------- -->
-      <!-- Timer 4           -->
-      <!-- ----------------- -->
-      <button id="timer-btn-8" data-pdx-id=8 type="button"
-              class="btn btn-idle rounded-5 w-100 mb-2 mt-2" role="alert"
-              data-bs-toggle="collapse" data-bs-target="#collapse-8"
-              aria-expanded="false" aria-controls="collapse-8">
-
-        <!-- header -->
-        <div class="d-flex justify-content-between w-100 pr-5">
-          <div class="pdx-timer-id"> 4 </div>
-          <div class="pdx-timer-label"> Start </div>
-          <div class="pdx-timer-clock flex-grow-1">
-          </div>
-        </div>
-
-        <!-- content -->
-        <div class="collapse w-100" id="collapse-8">
-          <div class="pdx-timer-message"></div>
-          <div class="d-flex w-100">
-            <div class="flex-grow-1 p-1">
-              <a class="btn btn-back rounded-5 w-100">Back</a>
-            </div>
-            <div class="flex-grow-1 p-1">
-              <a class="btn btn-removed rounded-5 w-100"
-                 data-pdx-id=8
-                 data-bs-toggle="modal"
-                 data-bs-target="#staticBackdrop">Removed</a>
-            </div>
-          </div>
-        </div>
-      </button>
 
     </div> <!-- Heat Block -->
-
 
   </div> <!-- Container -->
 
@@ -663,19 +514,292 @@
   -->
   <script>
 
-    // --------------------------------------------------------
-    // Helper methods
-    // --------------------------------------------------------
-    pad = function(n) {
-      return n < 10 ? '0' + n : n;
-    };
 
-    String.prototype.format = function () {
-      var i = 0, args = arguments;
-      return this.replace(/{}/g, function () {
-        return typeof args[i] != 'undefined' ? args[i++] : '';
+    /*
+
+      let timer = new Timer();
+      timer.start({callback: function (timer) {
+        $('#timer-btn-'+ id + ' .pdx-timer-clock').html(
+            timer.getTimeValues().toString(['minutes', 'seconds'])
+        );
+      }});
+    }*/
+
+
+    function setTimerDate(id, value, updateDB) {
+      var duration = $('input[name="settings-hb"]:checked').val()
+      PROFILE.timers[id].date = value
+      PROFILE.timers[id].duration = Number(duration) * 60;
+      if (updateDB)
+        updateProfile(PROFILE)
+    }
+
+
+    function getOrCreateTimer(id, reset) {
+      if (reset)
+        if (_TIMERS[id] != null) {
+          _TIMERS[id].stop()
+          delete _TIMERS[id]
+        }
+      if (_TIMERS[id] == null)
+        _TIMERS[id] = new Timer()
+      return _TIMERS[id]
+    }
+
+
+    function prepend(value, array) {
+      var newArray = array.slice();
+      newArray.unshift(value);
+      return newArray;
+    }
+
+
+    function timeFormat(timer) {
+      //if (timer.minutes > 0)
+      //    return ['minutes', 'seconds']
+      if (timer.hours > 0)
+          return ['hours', 'minutes', 'seconds']
+      if (timer.days > 0)
+          return ['days', 'hours', 'minutes', 'seconds']
+      return ['minutes', 'seconds']
+    }
+
+    function behaviour1(id) {
+      /**
+       * Counts down until it is done and then keeps the 00:00
+       * value. If clicked while counting it does nothing. If
+       * clicked while reached 00:00 starts again.
+       **/
+      // Add timer to variable
+      var timer = new Timer()
+      _TIMERS[id] = timer
+      // Create tag
+      //var tag = '#timer-btn-' + id
+      var tag = '#timer-sample-prep'
+
+      // Configure click
+      $(tag).on( "click", function( event ) {
+        $(tag).removeClass('btn-idle')
+        $(tag).addClass('btn-success')
+
+        if (!_TIMERS[id].isRunning()) {
+
+          var duration = $('input[name="settings-sp"]:checked').val()
+
+          timer.start({
+            countdown: true,
+            startValues: { seconds: Number(duration) },
+            callback: function (timer) {
+              $('#timer-sample-prep .pdx-timer-clock').html(
+                timer.toString(timeFormat(timer))
+              );
+              if (timer.seconds == 0) {
+                $(tag).removeClass('btn-success')
+                $(tag).addClass('btn-idle')
+                audioPrep.play()
+                //if ($('#sample-prep-bell').is(":checked")) {
+                //  sound2.play()
+                //}
+              }
+            }
+          });
+        }
       });
-    };
+    }
+
+    function behaviour2(id, seconds) {
+      /**
+       * Counts from zero until infinity. It adds a + before
+       * the time; that is, +00:25.
+       *
+       * .. note: Ask whether it should allow to show hours,
+       *          otherwise users won't know if more than an
+       *          hour has passed.
+       **/
+     // Add timer to variable
+      //newTimer(id)
+      //var timer = PROFILE.timers[id].timer
+      //console.log(PROFILE.timers[id])
+
+      // Get start value
+      //var now = new Date().getTime()
+      //var ini = PROFILE.timers[id].date
+      //var distance = Math.floor((now - (ini + 10*1000)) / 1000) // seconds
+      //console.log(distance)
+
+      console.log('['+ id +'] behaviour2', seconds)
+      // Reset timer
+      var timer = getOrCreateTimer(id, true)
+
+      // Create tag
+      var obj = $('#timer-btn-' + id)
+
+      //var timer = new Timer()
+
+      // Configure click
+      if (!timer.isRunning()) {
+        timer.start({
+          startValues: { seconds: seconds },
+          targetValues: { seconds: Infinity},
+          callback: function (timer) {
+            obj.find('.pdx-timer-clock').html(
+              '+' + timer.toString(timeFormat(timer))
+            );
+            obj.find('.pdx-timer-message').html(
+              PROFILE.config.text.messages.pastTime
+            )
+            //timerPastTime(obj)
+
+            // Get days, hours, minutes, seconds
+            var start = PROFILE.timers[id].date
+            var period = PROFILE.timers[id].duration
+            var [timestamp, countUp] = getPDXTime(start, period * 1000)
+            var time = dhms2(timestamp)
+            var str = getPDXString(time)
+            console.log(id, timestamp, countUp, time, str)
+
+            if (!countUp) {
+              if (timestamp > 2*60*1000) { // 2 min
+                timerSuccess(obj)
+              } else if (timestamp > 0) {
+                timerWarning(obj)
+              } else {
+                console.log("What state is this?")
+              }
+            } else {
+              if (timestamp < 1*60*1000) { // 1 min
+                timerDanger(obj)
+              } else {
+                timerPastTime(obj)
+              }
+            }
+
+          }
+        });
+      }
+    }
+
+    function behaviour3(id, seconds) {
+      /**
+       * Counts downs till 0.
+       **/
+      //newTimer(id)
+
+      //PROFILE.timers[id].date = new Date().getTime()
+      //updateProfile(PROFILE)
+
+      var timer = getOrCreateTimer(id)
+      var obj = $('#timer-btn-' + id)
+
+      // Log information
+      console.log('['+id+'] behaviour3', seconds, timer)
+
+      // Pending reset
+      timer.start({
+        countdown: true,
+        //precision: 'secondTenths',
+        startValues: { seconds: seconds },
+        callback: function (t) {
+
+          // Update clock
+          obj.find('.pdx-timer-clock').html(
+            t.toString(['minutes', 'seconds'])
+          )
+
+          // Remove idle
+          if (obj.hasClass('btn-idle'))
+              obj.removeClass('btn-idle')
+
+
+          /*
+           * It is possible to use _TIMER[id].getTotalTimeValues()
+           * which tells you the amount of 'seconds' remaining if it
+           * is a countdown.
+           *
+           * Hence, this two are equivalent
+           * if ((t.minutes == 1) & (t.seconds >= 55) & (t.seconds <= 59))
+           *
+           * rem = _TIMER[id].getTotalTimeValues()
+           * if ((rem >= 60+55) & (rem <= 50+59))
+           */
+
+          // Get days, hours, minutes, seconds
+          var start = PROFILE.timers[id].date
+          var period = PROFILE.timers[id].duration
+          var [timestamp, countUp] = getPDXTime(start, period * 1000)
+          var time = dhms2(timestamp)
+          var str = getPDXString(time)
+          console.log(id, timestamp, countUp, time, str)
+
+          if (!countUp) {
+            if (timestamp > 2*60*1000) { // 2 min
+              timerSuccess(obj)
+            } else if (timestamp > 0) {
+              timerWarning(obj)
+            } else {
+              console.log("What state is this?")
+            }
+          } else {
+            behaviour2(id, 0)
+          }
+
+
+          /*
+           * When running in the background the timer created using the
+           * easytimer.js library gets paused. Since easytimer since to
+           * be based in counting setIntervals() events, it does not
+           * count properly. Instead of using easytimer we could compute the
+           * different between the stored date and the current date.
+           */
+
+          /*
+          // Configure timer visual states
+          if ((t.hours == 0) & (t.minutes == 0) & (t.seconds == 0)) {
+            //if ($('#heat-block-bell').is(":checked")) {
+            //  audioPast.volume = 1
+            //  audioPast.play()
+            // }
+            audioPast.play()
+            obj.find('.pdx-timer-label').html('Remove')
+            behaviour2(id, 0)
+
+          } else if ((t.minutes <= 0)) {
+              timerDanger(obj)
+              if ((t.minutes == 0) & (t.seconds >= 55) & (t.seconds <= 59))
+                audioDanger.play()
+
+          } else if ((t.minutes <= 1)) {
+              timerWarning(obj)
+              if ((t.minutes == 1) & (t.seconds >= 55) & (t.seconds <= 59))
+                audioWarn.play()
+
+          } else {
+              timerSuccess(obj)
+          }*/
+
+
+        }
+      });
+    }
+
+
+
+    $('[id^=timer-btn-]').on('show.bs.collapse', function (e) {
+      /* Disable dropdown if timer not counting */
+      console.log("handling collapse....")
+      if (!$(this).hasClass('counting')) {
+        console.log("it does not have counting!")
+        $(this).addClass('counting')
+        e.preventDefault()
+      }
+      console.log('it had counting!')
+    })
+
+    $('.btn-back').on('click', function (event) {
+      /* Disable button back click (handled by boostrap) */
+      event.preventDefault()
+      event.stopPropagation()
+    })
 
 
     // --------------------------------------------------------
@@ -752,18 +876,96 @@
       obj.find('.pdx-timer-label').html('Start')
     }
 
-    // ---------------------------------------------------------
+
+    // --------------------------------------------------------
     // Enable functionality
-    // ---------------------------------------------------------
+    // --------------------------------------------------------
 
-     //$('input[name="settings-hb"]').prop('disabled', true)
-     //$('input[type="radio"]').prop('disabled', false)
-     //function radiobuttonManager(tag, disable) {
-     //
-     //}
+    // Enable seconds timer
+    $('[id^=timer-btn-]').on( "click", function( event ) {
+      console.log("Clicked button to start/dropdown timer")
+      var id = $(this).attr('data-pdx-id')
+      if (PROFILE.timers[id].date == null) {
+        setTimerDate(id, new Date().getTime(), true) // update db
+        behaviour3(id, PROFILE.timers[id].duration)
+      }
+    });
+
+    // Enable reset
+    $('[id^=timer-btn-]').find('.btn-removed')
+      .on('click', function (event) {
+
+        // Get id from element
+        var id = parseInt($(this).attr('data-pdx-id'));
+
+        (async function() {
+          await myAlert('Hello there');
+          $('#timer-btn-' + id).removeClass('counting')
+          if (_TIMERS[id] != null) {
+            getOrCreateTimer(id, true) // reset
+            setTimerDate(id, null, true) // update db
+          }
+          timerIdle($('#timer-btn-'+id))
+        })();
+
+        // Avoid collapse click
+        event.preventDefault()
+        event.stopPropagation()
+      })
 
 
-      /*
+
+    function setUpTimerFromDB(id) {
+      /**
+       *
+       *  // if no date
+       *    // create empty timer (or do nothing)
+       *  // else
+       *    // activate counting
+       *    // get time from start
+       *    // run timer behaviour
+       *
+       */
+      console.log('[' + id + '] setUpTimerFromDB', PROFILE.timers[id])
+      // Load timer from Database
+      if (PROFILE.timers[id].date == null) {
+        return
+      }
+
+      // The timer was already counting
+      if (PROFILE.timers[id].date != null)
+        if (!$('#timer-btn-'+id).hasClass('counting'))
+          $('#timer-btn-' + id).addClass('counting')
+
+      // Get start value in seconds
+      var now = new Date().getTime()          // current
+      var ini = PROFILE.timers[id].date       // start
+      var dur = PROFILE.timers[id].duration;  // seconds
+      var seconds = Math.floor((now - (ini + dur*1000)) / 1000)
+
+      console.log('[' + id + '] setUpTimerFromDB, seconds', seconds)
+      // Call timer behaviour
+      if (seconds > 0 ) {
+        behaviour2(id, Math.abs(seconds))
+      } else {
+        behaviour3(id, Math.abs(seconds))
+      }
+    }
+
+
+    const myAlert = async(message) => {
+       return new Promise((resolve) => {
+         $('#rem').off()
+         $('#rem').on('click', function (event) {
+          console.log("Now you can remove!")
+          resolve()
+        })
+      });
+    }
+
+
+
+    /*
     // Enable radio button (Not needed!)
     $('#time-heat-block input').on('change', function() {
       var val = $('input[name="settings-hb"]:checked').val();
@@ -778,71 +980,8 @@
       updateProfile(PROFILE)
     });*/
 
-     // Update visual start value on radio button change
-    $('#settings-time-sample-preparation input').on('change', function() {
-      let val = $('input[name="settings-sp"]:checked').val();
-      let str = '00:{}'.format(pad(Number(val)))
-      $('#timer-sample-prep').find('.pdx-timer-clock').html(str)
-    });
-
-    // Update visual start values on radio button change
-    $('#settings-time-heat-block input').on('change', function() {
-       updateTimersStartValue()
-    });
 
 
-
-    // Enable functionality for seconds timer
-    $('[id^=timer-btn-]').on( "click", function( event ) {
-      var id = $(this).attr('data-pdx-id')
-      console.log("[{}] Starting timer!".format(id));
-      startTimer(id)
-    });
-
-    // Disable collapse on first click.
-    $('[id^=timer-btn-]').on('show.bs.collapse', function (e) {
-      if (!$(this).hasClass('counting')) {
-        $(this).addClass('counting')
-        e.preventDefault()
-      }
-    })
-
-    // Disable back click button (handled by bootstrap)
-    $('.btn-back').on('click', function (event) {
-      event.preventDefault()
-      event.stopPropagation()
-    })
-
-    // Enable functionality: reset the timer
-    $('[id^=timer-btn-]').find('.btn-removed')
-      .on('click', function (event) {
-        var id = $(this).attr('data-pdx-id');
-        console.log("[{}] Stopping timer!".format(id));
-        resetTimer(id)
-        // Avoid collapse click
-        event.preventDefault()
-        event.stopPropagation()
-      })
-
-    // Silence sample preparation noise.
-    $('#sample-prep-bell').on('click', function (e) {
-      audioPrep = prepareAudio('bg-audio-prep')
-      audioPrep.volume = $(this).is(":checked")
-    })
-
-
-    // Silence heat block noise
-    $('#heat-block-bell').on('click', function (e) {
-      //audioWarn = prepareAudio('bg-audio-warn')
-      audioDanger = prepareAudio('bg-audio-danger')
-      //audioPast = prepareAudio('bg-audio-past')
-      //audioWarn.volume = $(this).is(":checked")
-      audioDanger.volume = $(this).is(":checked")
-      //audioPast.volume = $(this).is(":checked")
-    })
-
-
-    // .. note: Do not use!
     $('#reset-db').on('click', function (e) {
       /* It would be great to implement this async, however
          it shows a blocked issue when deleting the database.
@@ -855,56 +994,25 @@
     })
 
 
+    $('#sample-prep-bell').on('click', function (e) {
+      /* Silence sound for simple preparation timer */
+      audioPrep = prepareAudio('bg-audio-prep')
+      audioPrep.volume = $(this).is(":checked")
+    })
 
 
+    $('#heat-block-bell').on('click', function (e) {
+      /* Silence sounds for heat block timers */
+      audioWarn = prepareAudio('bg-audio-warn')
+      audioDanger = prepareAudio('bg-audio-danger')
+      audioPast = prepareAudio('bg-audio-past')
 
-    /**
-     $('[id^=timer-btn-]').find('.pdx-timer-clock').each(
-       function (idx, obj) {
-         let t = $('input[name="settings-hb"]:checked').val()
-         $(this).html(pad(t) + ':' + pad(0))
-     })
-    **/
-
-
-    // Draw numbers on load
-    // Draw numbers on settings change
-    // Disable settings if timer running
+      audioWarn.volume = $(this).is(":checked")
+      audioDanger.volume = $(this).is(":checked")
+      audioPast.volume = $(this).is(":checked")
+    })
 
 
-    // ------------------------------------------------
-    // Main functions
-    // ------------------------------------------------
-    function isHeatBlockTimerRunning() {
-      for ([key, value] of Object.entries(PROFILE.timers)) {
-        if ((value.date != null) & (key > 0))
-          return true
-      }
-      return false
-    }
-
-    function isSampPrepTimerRunning() {
-      return _TIMERS[0].isRunning()
-    }
-
-    function disableRadioButtonsHeatBlock(flag) {
-      $('input[name="settings-hb"]').prop('disabled', flag)
-     //$('input[type="radio"]').prop('disabled', false)
-    }
-
-    function disableRadioButtonsSampPrep(flag) {
-      $('input[name="settings-sp"]').prop('disabled', flag)
-    }
-
-    function updateTimersStartValue() {
-      $('[id^=timer-btn-]').each(function (idx, obj) {
-        var id = $(this).attr('data-pdx-id')
-        if (PROFILE.timers[id].date == null) {
-          let t = $('input[name="settings-hb"]:checked').val()
-          $(this).find('.pdx-timer-clock').html(pad(t) + ':' + pad(0))
-        }
-      })
-    }
 
     function prepareAudio(tag) {
       /* Loads the audio, sets volume to 0, plays it and
@@ -919,155 +1027,12 @@
       return audio;
     }
 
-
-    function setUpTimerFromDB(id) {
-      /**
-       *
-       *  // if no date
-       *    // create empty timer (or do nothing)
-       *  // else
-       *    // activate counting
-       *    // get time from start
-       *    // run timer behaviour
-       *
-       */
-
-      // Load timer from Database
-      if (PROFILE.timers[id].date == null) {
-        return
-      }
-
-      console.log('[' + id + '] setUpTimerFromDB', PROFILE.timers[id])
-
-      // The timer was already counting
-      if (!$('#timer-btn-'+id).hasClass('counting'))
-        $('#timer-btn-' + id).addClass('counting')
-
-      // Start timer
-      PROFILE.timers[id].interval =
-        setInterval(function () {
-          updateTimer(id)
-        }, 500);
-
-      // Disable
-      disableRadioButtonsHeatBlock(true)
-    }
-
-
-      /*
-
-      let timer = new Timer();
-      timer.start({callback: function (timer) {
-        $('#timer-btn-'+ id + ' .pdx-timer-clock').html(
-            timer.getTimeValues().toString(['minutes', 'seconds'])
-        );
-      }});
-    }*/
-
-
-    function setTimerDate(id, value, updateDB) {
-      var duration = $('input[name="settings-hb"]:checked').val()
-      PROFILE.timers[id].date = value
-      PROFILE.timers[id].duration = Number(duration) * 60;
-      if (updateDB)
-        updateProfile(PROFILE)
-    }
-
-
-    function getOrCreateTimer(id, reset) {
-      if (reset)
-        if (_TIMERS[id] != null) {
-          _TIMERS[id].stop()
-          delete _TIMERS[id]
-        }
-      if (_TIMERS[id] == null)
-        _TIMERS[id] = new Timer()
-      return _TIMERS[id]
-    }
-
-
-    function prepend(value, array) {
-      var newArray = array.slice();
-      newArray.unshift(value);
-      return newArray;
-    }
-
-
-    function timeFormat(timer) {
-      //if (timer.minutes > 0)
-      //    return ['minutes', 'seconds']
-      //if (timer.hours > 0)
-      //   return ['hours', 'minutes', 'seconds']
-      //if (timer.days > 0)
-      //    return ['days', 'hours', 'minutes', 'seconds']
-      return ['minutes', 'seconds']
-    }
-
-    function behaviour1(id) {
-      /**
-       * Counts down until it is done and then keeps the 00:00
-       * value. If clicked while counting it does nothing. If
-       * clicked while reached 00:00 starts again.
-       **/
-      // Add timer to variable
-      var timer = new Timer()
-      _TIMERS[id] = timer
-      // Create tag
-      //var tag = '#timer-btn-' + id
-      var tag = '#timer-sample-prep'
-
-      // Configure click
-      $(tag).on( "click", function( event ) {
-        $(tag).removeClass('btn-idle')
-        $(tag).addClass('btn-success')
-
-        if (!_TIMERS[id].isRunning()) {
-
-          var duration = $('input[name="settings-sp"]:checked').val()
-
-          // Disable settings
-          disableRadioButtonsSampPrep(true)
-
-          timer.start({
-            countdown: true,
-            startValues: { seconds: Number(duration) },
-            callback: function (tmr) {
-              console.log(tmr)
-
-              $('#timer-sample-prep .pdx-timer-clock').html(
-                tmr.toString(timeFormat(tmr))
-              );
-              if (tmr.seconds == 0) {
-                $(tag).removeClass('btn-success')
-                $(tag).addClass('btn-idle')
-                if (audioPrep != null)
-                  audioPrep.play()
-                // Enable settings
-                disableRadioButtonsSampPrep(false)
-                // Set value to 60
-                $('#timer-sample-prep .pdx-timer-clock').html(
-                  '00:'+ pad(parseInt($('input[name="settings-sp"]:checked').val()))
-                );
-              }
-            }
-          });
-        }
-      });
-    }
-
-
-
-
-
-
-
-
     // Local variables
     var PROFILE = null
     var _TIMERS = {}
-    //var audioWarn = null
+    var audioWarn = null
     var audioDanger = null
-    //var audioPast = null
+    var audioPast = null
     var audioPrep = null
 
     // On document ready
@@ -1076,32 +1041,25 @@
       // Create icon for iOS splash
       iosPWASplash('./images/logo-pdx.png', '#FFFFFF');
 
-      // Should we clear all setInterval just in case?
-      ClearAllIntervals()
-
       // Create database if it does not exist
       createDatabase(reset=false).then(function(result) {
         getProfile(1).then( function (result) {
           // Load profile from DB
           PROFILE = result;
-
-          // Set all timers to correct start time
-          updateTimersStartValue()
-
           // Initialise
           behaviour1(0)
           setUpTimerFromDB(1)
           setUpTimerFromDB(2)
           setUpTimerFromDB(3)
           setUpTimerFromDB(4)
-          setUpTimerFromDB(5)
-          setUpTimerFromDB(6)
-          setUpTimerFromDB(7)
-          setUpTimerFromDB(8)
         })
       })
 
     });
+
+
+    var testDate = new Date(2024, 4, 31, 9, 5, 0)
+    var currDate = new Date()
 
 
     function dhms(t){
@@ -1131,7 +1089,7 @@
 
     function dhms2(t) {
       /**
-       * Convert timestamp to days, hours, minutes and seconds.
+       *
        **/
       var d = Math.floor(t / (1000 * 60 * 60 * 24))
       var h = Math.floor((t % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
@@ -1139,10 +1097,10 @@
       var s = Math.floor((t % (1000 * 60)) / 1000)
 
       return {
-        'days': d,
-        'hours': h,
-        'minutes': m,
-        'seconds': s
+      'days': d,
+      'hours': h,
+      'minutes': m,
+      'seconds': s
       }
    }
 
@@ -1174,6 +1132,24 @@
     }
 
 
+    function timeFormat(timer) {
+      //if (timer.minutes > 0)
+      //    return ['minutes', 'seconds']
+      if (timer.hours > 0)
+          return ['hours', 'minutes', 'seconds']
+      if (timer.days > 0)
+          return ['days', 'hours', 'minutes', 'seconds']
+      return ['minutes', 'seconds']
+    }
+
+
+    String.prototype.format = function () {
+      var i = 0, args = arguments;
+      return this.replace(/{}/g, function () {
+        return typeof args[i] != 'undefined' ? args[i++] : '';
+      });
+    };
+
     function getPDXString(t) {
       pad = function(n) { return n < 10 ? '0' + n : n; };
       if (t.days > 0)
@@ -1190,78 +1166,8 @@
     }
 
 
-    const myAlert = async(message) => {
-      return new Promise((resolve) => {
-        $('#rem').off()
-        $('#rem').on('click', function (event) {
-          console.log("User accepted modal, now we can remove!")
-          resolve()
-        })
-      });
-    }
-
-    function resetTimer(id) {
-      /**
-       * Reset timer
-       *
-       * The method clears the interval task first, then
-       * sets all the parameters to null, removes the
-       * <counting> class from the interface and sets it
-       * to idle.
-       *
-       **/
-      // Reset asynchronous via modal confirmation
-      (async function() {
-        await myAlert('Hello there');
-        window.clearInterval(PROFILE.timers[id].interval)
-        PROFILE.timers[id].interval = null;
-        PROFILE.timers[id].duration = null;
-        PROFILE.timers[id].date = null;
-        $('#timer-btn-' + id).removeClass('counting')
-        timerIdle($('#timer-btn-'+id))
-        // Save in DB.
-        updateProfile(PROFILE);
-        // Update starting value
-        updateTimersStartValue();
-        // Enable settings
-        if (!isHeatBlockTimerRunning())
-          disableRadioButtonsHeatBlock(false)
-      })();
-    }
-
-    function startTimer(id) {
-      /**
-       * Start timer
-       *
-       * The method checks that the timer is not running,
-       * and then sets the date, the duration (from settings)
-       * and runs the interval periodically (saving id to
-       * delete the task afterwards if needed)
-       *
-       **/
-      // Check timer is not running
-      if (PROFILE.timers[id].date == null) {
-        let p = $('input[name="settings-hb"]:checked').val() // min
-        PROFILE.timers[id].date = new Date().getTime()
-        PROFILE.timers[id].duration = Number(p) * 60
-        PROFILE.timers[id].interval =
-          setInterval(function () {
-            updateTimer(id)
-          }, 500);
-        // Save in DB
-        updateProfile(PROFILE)
-        // Disable settings
-        disableRadioButtonsHeatBlock(true)
-      }
-    }
-
     function updateTimer(id) {
       /**
-       *  Update timer.
-       *
-       *  The timestamp decreases and when passes 0 then starts
-       *  going up again. This is because the TimerPDX has been
-       *  designed in that way.
        *
        **/
 
@@ -1273,35 +1179,18 @@
       var period = PROFILE.timers[id].duration
       var [timestamp, countUp] = getPDXTime(start, period * 1000)
       var time = dhms2(timestamp)
-      var display = getPDXString(time)
-      //console.log(time)
-      //console.log("[{}] UpdateTimer: {} {} {} {} {} {}".format(
-      //  id, start, period, timestamp, countUp, display))
-
-      if (countUp)
-        display = '+' + display
-
-      // Update time displayed
-      obj.find('.pdx-timer-clock').html(display)
-
-       // Ensure there is no idle if running
-      if (obj.hasClass('btn-idle'))
-        obj.removeClass('btn-idle')
+      console.log(id, timestamp, countUp, time)
 
       if (!countUp) {
-        if (timestamp > 5 * 60 * 1000) { // 5 min
+        if (timestamp > 2 * 60 * 1000) { // 2 min
           timerSuccess(obj)
         } else if (timestamp > 0) {
           timerWarning(obj)
         } else {
-          console.log("[updateTimer] What state is this?")
+          console.log("What state is this?")
         }
       } else {
-        if (timestamp < 1500) { // or use day, hour, min, sec all 0
-          if (audioDanger != null)
-            audioDanger.play()
-        }
-        if (timestamp < 5 * 60 * 1000) { // 1 min
+        if (timestamp < 1 * 60 * 1000) { // 1 min
           timerDanger(obj)
         } else {
           timerPastTime(obj)
@@ -1309,20 +1198,20 @@
       }
     }
 
+
+
+
     /**
      * Quick timer test
      */
     var ds = new Date().getTime()
     var duration = 30 * 1000
 
-    // Set date on console.
-    //PROFILE.timers[id].date = new Date().getTime()
-
-    // Run interval
     /*
     setInterval(function() {
-      let id = 1;
-      updateTimer(id)
+      //console.log("running timeout!")
+      //console.log(dhms2(getPDXTime(ds, duration)))
+      updateTimer(1)
     }, 1000);
     */
 
@@ -1333,5 +1222,35 @@
 
   </script>
 
+
+
+  <!--
+  <script src="js/main.js"></script>
+
+  <script>
+
+    // .. note: This is to avoid querying to the database
+    //          all the time. We have a local variable and
+    //          the database will be queried less.
+
+    // Local profile variable
+    var PROFILE = null;
+
+    $(document).ready(function() {
+
+      // Create database if it does not exist
+      createDatabase(reset=false).then(function(result) {
+        getProfile(1).then( function (result) {
+          // Load profile from DB
+          PROFILE = result;
+          // Populate timers
+          populateTimers();
+        })
+      })
+
+    });
+
+  </script>
+  -->
 </body>
 </html>
