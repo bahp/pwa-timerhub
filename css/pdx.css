@@ -1,3 +1,5 @@
+/* Define colors */
+
 :root {
     --pdx-green-1: #009944;
     --pdx-green-2: #92d9b2;
@@ -18,8 +20,8 @@
     --color-green: #009944;
     --color-green-2: #92d9bf;
     --color-green-3: #bcedd2;
-    --color-yellow: #f9c241;
-    --color-yellow-2: #ffdf95;
+    --pdx-yellow-1: #f9c241;
+    --pdx-yellow-1-2: #ffdf95;
     --color-red: #d94444;
     --color-red-2: #df7e7e;
     --color-red-3: #f2cbcb;
@@ -30,7 +32,9 @@
     --color-black: #292929;
 }
 
-
+/* ---------------------------------------
+   Buttons
+   ---------------------------------------*/
 #button {
   display: none;
 }
@@ -44,6 +48,54 @@
 }
 
 
+.btn-warning {
+    background-color: var(--pdx-yellow-1);
+}
+
+.btn-warning > div {
+    color: var(--color-white);
+}
+
+.btn-success {
+    background-color: var(--pdx-green-1);
+}
+
+.btn-alert {
+    background-color: var(--pdx-red-1);
+}
+
+.btn-back {
+    background-color: var(--pdx-white);
+    color: var(--pdx-black);
+}
+
+.btn-back:hover {
+    background-color: var(--pdx-gray-4);
+    color: var(--color-black);
+}
+
+.btn-removed {
+    background-color: var(--pdx-white);
+    color: var(--color-red);
+}
+
+.btn-removed:hover {
+    background-color: var(--pdx-gray-4);
+    color: var(--color-red);
+}
+
+.btn-idle {
+    background-color: var(--pdx-gray-4);
+}
+
+.btn-idle:hover {
+    background-color: var(--color-medium-gray);
+}
+
+
+/* ---------------------------------------
+   Checkboxes
+   ---------------------------------------*/
 label:has(input[type="checkbox"]:checked) i {
     color:var(--pdx-green-1);
 }
@@ -56,8 +108,7 @@ input[type="checkbox"] {
 
 /* ---------------------------------------
    Radio buttons
-   ---------------------------------------
-   */
+   ---------------------------------------*/
 /* Radio element */
 input[type="radio"] { /* remove checkbox */
   position: fixed;
@@ -110,8 +161,8 @@ label:has(input[type="radio"][disabled]) {
 /*
 input[type="radio"][disabled] {
     opacity: 0.5;
-    /*cursor: not-allowed;
-    pointer-events: none*/
+    cursor: not-allowed;
+    pointer-events: none
 }*/
 
 
@@ -153,140 +204,6 @@ input[type="radio"][disabled] {
     color: var(--pdx-gray-2);
     padding-right: 9px;
 }*/
-
-.btn-warning {
-    background-color: var(--color-yellow);
-}
-
-.btn-warning > div {
-    color: var(--color-white);
-}
-
-.btn-success {
-    background-color: var(--color-green);
-}
-
-.btn-alert {
-    background-color: var(--color-red);
-}
-
-.btn-back {
-    background-color: var(--color-white);
-    color: var(--color-black);
-}
-
-.btn-back:hover {
-    background-color: var(--color-light-gray);
-    color: var(--color-black);
-}
-
-.btn-removed {
-    background-color: var(--color-white);
-    color: var(--color-red);
-}
-
-.btn-removed:hover {
-    background-color: var(--color-light-gray);
-    color: var(--color-red);
-}
-
-.btn-idle {
-    background-color: var(--color-light-gray);
-}
-
-.btn-idle:hover {
-    background-color: var(--color-medium-gray);
-}
-
-:root {
-    /* Colors: */
-    --unnamed-color-ffffff: #FFFFFF;
-    --unnamed-color-efefef: #EFEFEF;
-    --unnamed-color-cbcbcb: #CBCBCB;
-    --unnamed-color-8b8b8b: #8B8B8B;
-    --unnamed-color-707070: #707070;
-    --unnamed-color-292929: #292929;
-    --unnamed-color-00000000: #00000000;
-    --unnamed-color-f2cbcb: #F2CBCB;
-    --unnamed-color-df7e7e: #DF7E7E;
-    --unnamed-color-d94444: #D94444;
-    --unnamed-color-ffdf95: #FFDF95;
-    --unnamed-color-f9c241: #F9C241;
-    --unnamed-color-bcedd2: #BCEDD2;
-    --unnamed-color-92d9b2: #92D9B2;
-    --unnamed-color-009944: #009944;
-
-    /* Font/text values */
-    --unnamed-font-family-roboto: Roboto;
-    --unnamed-font-family-roboto-mono: Roboto Mono;
-    --unnamed-font-style-normal: normal;
-    --unnamed-font-weight-bold: bold;
-    --unnamed-font-weight-normal: normal;
-    --unnamed-font-weight-medium: medium;
-    --unnamed-font-size-26: 26px;
-    --unnamed-font-size-30: 30px;
-    --unnamed-font-size-32: 32px;
-    --unnamed-character-spacing-0: 0px;
-    --unnamed-line-spacing-40: 40px;
-    --unnamed-line-spacing-41: 41px;
-}
-
-/* Character Styles */
-.unnamed-character-style-1 {
-    font-family: var(--unnamed-font-family-roboto);
-    font-style: var(--unnamed-font-style-normal);
-    font-weight: var(--unnamed-font-weight-bold);
-    font-size: var(--unnamed-font-size-32);
-    line-height: var(--unnamed-line-spacing-41);
-    letter-spacing: var(--unnamed-character-spacing-0);
-    color: var(--unnamed-color-292929);
-}
-.unnamed-character-style-2 {
-    font-family: var(--unnamed-font-family-roboto);
-    font-style: var(--unnamed-font-style-normal);
-    font-weight: var(--unnamed-font-weight-normal);
-    font-size: var(--unnamed-font-size-30);
-    line-height: var(--unnamed-line-spacing-41);
-    letter-spacing: var(--unnamed-character-spacing-0);
-    color: var(--unnamed-color-292929);
-}
-.unnamed-character-style-3 {
-    font-family: var(--unnamed-font-family-roboto);
-    font-style: var(--unnamed-font-style-normal);
-    font-weight: var(--unnamed-font-weight-normal);
-    font-size: var(--unnamed-font-size-26);
-    line-height: var(--unnamed-line-spacing-40);
-    letter-spacing: var(--unnamed-character-spacing-0);
-    color: var(--unnamed-color-292929);
-}
-.unnamed-character-style-4 {
-    font-family: var(--unnamed-font-family-roboto);
-    font-style: var(--unnamed-font-style-normal);
-    font-weight: var(--unnamed-font-weight-normal);
-    font-size: var(--unnamed-font-size-26);
-    line-height: var(--unnamed-line-spacing-40);
-    letter-spacing: var(--unnamed-character-spacing-0);
-    color: var(--unnamed-color-d94444);
-}
-.unnamed-character-style-5 {
-    font-family: var(--unnamed-font-family-roboto-mono);
-    font-style: var(--unnamed-font-style-normal);
-    font-weight: var(--unnamed-font-weight-medium);
-    font-size: var(--unnamed-font-size-30);
-    line-height: var(--unnamed-line-spacing-41);
-    letter-spacing: var(--unnamed-character-spacing-0);
-    color: var(--unnamed-color-292929);
-}
-.unnamed-character-style-6 {
-    font-family: var(--unnamed-font-family-roboto);
-    font-style: var(--unnamed-font-style-normal);
-    font-weight: var(--unnamed-font-weight-bold);
-    font-size: var(--unnamed-font-size-30);
-    line-height: var(--unnamed-line-spacing-41);
-    letter-spacing: var(--unnamed-character-spacing-0);
-    color: var(--unnamed-color-009944);
-}
-
 
 
 .form-switch {
@@ -353,6 +270,10 @@ input[type="radio"][disabled] {
     padding-bottom: .5rem!important;
 }
 
+/* ----------------------------------------
+   Fonts
+   ----------------------------------------
+ */
 /** ***************
 /**
  <uniquifier>: Use a unique and descriptive class name
