@@ -876,6 +876,11 @@
     // ------------------------------------------------
     // Main functions
     // ------------------------------------------------
+    function ClearAllIntervals() {
+      for (var i = 1; i < 99999; i++)
+        window.clearInterval(i);
+    }
+
     function isHeatBlockTimerRunning() {
       for ([key, value] of Object.entries(PROFILE.timers)) {
         if ((value.date != null) & (key > 0))
@@ -1302,7 +1307,7 @@
           if (audioDanger != null)
             audioDanger.play()
         }
-        if (timestamp < 5 * 60 * 1000) { // 1 min
+        if (timestamp < 5 * 60 * 1000) { // 5 min
           timerDanger(obj)
         } else {
           timerPastTime(obj)
@@ -1327,10 +1332,6 @@
     }, 1000);
     */
 
-    function ClearAllIntervals() {
-      for (var i = 1; i < 99999; i++)
-        window.clearInterval(i);
-    }
 
   </script>
 

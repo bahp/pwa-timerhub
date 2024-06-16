@@ -21,19 +21,19 @@ const DEFAULT_DATA = [
             incubating: 'Incubating'
           },
           messages: {
-            incomplete: "<strong>Caution</strong> Incubation might not be complete.",
-            reaching: "<strong>Caution</strong> Incubation is almost complete.",
-            completed: "<strong>Caution</strong> Remove panel from Heat Block.",
-            pastTime: "<strong>Caution</strong> Panel incubated significantly past set time. Remove panel from heat block and see IFU."
+            incomplete: "<strong>Caution:</strong> Incubation might not be complete.",
+            reaching: "<strong>Caution:</strong> Incubation is almost complete.",
+            completed: "Remove panel from Heat Block.",
+            pastTime: "<strong>Caution:</strong> Panel incubated significantly past set time. Remove panel from Heat Block and see IFU."
           }
         },
         periods: {
-          sp: 60,   // 60 seconds
-          hb: 1*60 // 25 minutes
+          sp: 60,  // seconds
+          hb: 1*60 // minutes
         }
       },
       timers: {
-        0: { name: 0, duration: null, date: null, interval: null, timer: null},
+        0: { name: 0, duration: null, date: null, interval: null, timer: null}, // duration in minutes
         1: { name: 1, duration: null, date: null, interval: null, timer: null},
         2: { name: 2, duration: null, date: null, interval: null, timer: null},
         3: { name: 3, duration: null, date: null, interval: null, timer: null},
