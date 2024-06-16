@@ -28,20 +28,20 @@ const DEFAULT_DATA = [
           }
         },
         periods: {
-          sp: 60,  // seconds
-          hb: 1*60 // minutes
+          sp: 60, // seconds (check settings sidebar)
+          hb: 45  // minutes (check settings sidebar)
         }
       },
       timers: {
         0: { name: 0, duration: null, date: null, interval: null, timer: null}, // duration in minutes
-        1: { name: 1, duration: null, date: null, interval: null, timer: null},
-        2: { name: 2, duration: null, date: null, interval: null, timer: null},
-        3: { name: 3, duration: null, date: null, interval: null, timer: null},
-        4: { name: 4, duration: null, date: null, interval: null, timer: null},
-        5: { name: 5, duration: null, date: null, interval: null, timer: null},
-        6: { name: 6, duration: null, date: null, interval: null, timer: null},
-        7: { name: 7, duration: null, date: null, interval: null, timer: null},
-        8: { name: 8, duration: null, date: null, interval: null, timer: null},
+        1: { name: 1, duration: null, date: null, interval: null, timer: null}, // duration in minutes
+        2: { name: 2, duration: null, date: null, interval: null, timer: null}, // duration in minutes
+        3: { name: 3, duration: null, date: null, interval: null, timer: null}, // duration in minutes
+        4: { name: 4, duration: null, date: null, interval: null, timer: null}, // duration in minutes
+        5: { name: 5, duration: null, date: null, interval: null, timer: null}, // duration in minutes
+        6: { name: 6, duration: null, date: null, interval: null, timer: null}, // duration in minutes
+        7: { name: 7, duration: null, date: null, interval: null, timer: null}, // duration in minutes
+        8: { name: 8, duration: null, date: null, interval: null, timer: null}, // duration in minutes
        }
     }
   ]

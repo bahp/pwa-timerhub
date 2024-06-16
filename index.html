@@ -205,7 +205,7 @@
               <input type="radio" name="settings-hb" id="shb20" value=20 autocomplete="off"> 20m
             </label>
             <label class="btn btn-light rounded-5 mb-2">
-              <input type="radio" name="settings-hb" id="shb25" value=25 autocomplete="off" checked> 25m
+              <input type="radio" name="settings-hb" id="shb25" value=25 autocomplete="off"> 25m
             </label>
             <label class="btn btn-light rounded-5 mb-2">
               <input type="radio" name="settings-hb" id="shb30" value=30 autocomplete="off"> 30m
@@ -217,9 +217,13 @@
               <input type="radio" name="settings-hb" id="shb40" value=40 autocomplete="off"> 40m
             </label>
             <label class="btn btn-light rounded-5 mb-2">
-              <input type="radio" name="settings-hb" id="shb45" value=45 autocomplete="off"> 45m
+              <input type="radio" name="settings-hb" id="shb45" value=45 autocomplete="off" checked> 45m
             </label>
           </div>
+        </div>
+
+        <div class="flex-grow-1 align-content-end">
+          <span class="text-secondary"> Version 0.1.1 </span>
         </div>
 
         <!--
@@ -664,6 +668,7 @@
   -->
   <script>
 
+
     // --------------------------------------------------------
     // Helper methods
     // --------------------------------------------------------
@@ -779,7 +784,7 @@
       updateProfile(PROFILE)
     });*/
 
-     // Update visual start value on radio button change
+    // Update visual start value on radio button change
     $('#settings-time-sample-preparation input').on('change', function() {
       let val = $('input[name="settings-sp"]:checked').val();
       let str = '00:{}'.format(pad(Number(val)))
@@ -788,10 +793,14 @@
 
     // Update visual start values on radio button change
     $('#settings-time-heat-block input').on('change', function() {
-       updateTimersStartValue()
+      // Update visual start value
+      updateTimersStartValue()
+      // Update settings in db
+      let t = $('input[name="settings-hb"]:checked').val();
+      PROFILE.config.periods.hb = Number(t)
+      updateProfile(PROFILE)
+
     });
-
-
 
     // Enable functionality for seconds timer
     $('[id^=timer-btn-]').on( "click", function( event ) {
@@ -859,6 +868,7 @@
 
 
 
+
     /**
      $('[id^=timer-btn-]').find('.pdx-timer-clock').each(
        function (idx, obj) {
@@ -876,7 +886,7 @@
     // ------------------------------------------------
     // Main functions
     // ------------------------------------------------
-    function ClearAllIntervals() {
+    function clearAllIntervals() {
       for (var i = 1; i < 99999; i++)
         window.clearInterval(i);
     }
@@ -1064,7 +1074,11 @@
 
 
 
-
+    function setSettingsFromDB() {
+      let hb = PROFILE.config.periods.hb
+      $('#shb{}'.format(hb)).prop('checked', true)
+      updateTimersStartValue()
+    }
 
 
 
@@ -1083,7 +1097,8 @@
       iosPWASplash('./images/logo-pdx.png', '#FFFFFF');
 
       // Should we clear all setInterval just in case?
-      ClearAllIntervals()
+      clearAllIntervals()
+
 
       // Create database if it does not exist
       createDatabase(reset=false).then(function(result) {
@@ -1091,8 +1106,11 @@
           // Load profile from DB
           PROFILE = result;
 
+          // Set settings from DB.
+          setSettingsFromDB()
+
           // Set all timers to correct start time
-          updateTimersStartValue()
+          //updateTimersStartValue()
 
           // Initialise
           behaviour1(0)
