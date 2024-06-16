@@ -905,7 +905,6 @@
 
     function disableRadioButtonsHeatBlock(flag) {
       $('input[name="settings-hb"]').prop('disabled', flag)
-     //$('input[type="radio"]').prop('disabled', false)
     }
 
     function disableRadioButtonsSampPrep(flag) {
@@ -978,7 +977,7 @@
             timer.getTimeValues().toString(['minutes', 'seconds'])
         );
       }});
-    }*/
+    }
 
 
     function setTimerDate(id, value, updateDB) {
@@ -1017,7 +1016,7 @@
       //if (timer.days > 0)
       //    return ['days', 'hours', 'minutes', 'seconds']
       return ['minutes', 'seconds']
-    }
+    }*/
 
     function behaviour1(id) {
       /**
@@ -1051,7 +1050,7 @@
               console.log(tmr)
 
               $('#timer-sample-prep .pdx-timer-clock').html(
-                tmr.toString(timeFormat(tmr))
+                tmr.toString(['minutes', 'seconds'])
               );
               if (tmr.seconds == 0) {
                 $(tag).removeClass('btn-success')
@@ -1098,7 +1097,6 @@
 
       // Should we clear all setInterval just in case?
       clearAllIntervals()
-
 
       // Create database if it does not exist
       createDatabase(reset=false).then(function(result) {
