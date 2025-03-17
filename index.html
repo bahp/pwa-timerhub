@@ -181,6 +181,18 @@
             Sample Preparation
           </div>
 
+          <div class="text-start pdx-subtitle pb-1">
+            Enzyme
+          </div>
+          <div id='settings-time-enzyme' data-toggle="buttons" disabled>
+            <label class="btn  btn-light rounded-5 mb-2">
+              <input type="radio" name="settings-ez" id="sez300" value=300 autocomplete="off" checked> 5m
+            </label>
+          </div>
+
+          <div class="text-start pdx-subtitle pb-1">
+            Mix/Dry
+          </div>
           <div id='settings-time-sample-preparation' data-toggle="buttons" disabled>
             <label class="btn  btn-light rounded-5 mb-2">
               <input type="radio" name="settings-sp" id="ssp30" value=30 autocomplete="off" checked> 30s
@@ -317,6 +329,23 @@
       </div>
     </div>
 
+
+    <!-- ----------------- -->
+    <!-- Enzyme            -->
+    <!-- ----------------- -->
+    <button id="timer-enzyme" type="button"
+            class="btn btn-idle rounded-5 w-100 mb-2 mt-2">
+
+      <!-- header -->
+      <div class="d-flex justify-content-between w-100 pr-5">
+        <div class="pdx-timer-id d-none"></div>
+        <div class="pdx-timer-label"> Enzyme </div>
+        <div class="pdx-timer-clock flex-grow-1">
+          05:00
+        </div>
+      </div>
+
+    </button>
 
     <!-- ----------------- -->
     <!-- Mix/Dry           -->
@@ -911,6 +940,10 @@
       $('input[name="settings-sp"]').prop('disabled', flag)
     }
 
+    function disableRadioButtonByName(name, flag) {
+        $('input[name="'+name+'"]').prop('disabled', flag)
+    }
+
     function updateTimersStartValue() {
       $('[id^=timer-btn-]').each(function (idx, obj) {
         var id = $(this).attr('data-pdx-id')
@@ -1018,7 +1051,7 @@
       return ['minutes', 'seconds']
     }*/
 
-    function behaviour1(id) {
+    function behaviour1(id, tag, sett) {
       /**
        * Counts down until it is done and then keeps the 00:00
        * value. If clicked while counting it does nothing. If
@@ -1029,7 +1062,7 @@
       _TIMERS[id] = timer
       // Create tag
       //var tag = '#timer-btn-' + id
-      var tag = '#timer-sample-prep'
+      //var tag = '#timer-sample-prep'
 
       // Configure click
       $(tag).on( "click", function( event ) {
@@ -1038,10 +1071,12 @@
 
         if (!_TIMERS[id].isRunning()) {
 
-          var duration = $('input[name="settings-sp"]:checked').val()
+          var duration = $('input[name="' + sett + '"]:checked').val()
 
           // Disable settings
-          disableRadioButtonsSampPrep(true)
+          //disableRadioButtonsSampPrep(true)
+          disableRadioButtonByName(sett, true)
+
 
           timer.start({
             countdown: true,
@@ -1049,19 +1084,22 @@
             callback: function (tmr) {
               console.log(tmr)
 
-              $('#timer-sample-prep .pdx-timer-clock').html(
+              //$('#timer-sample-prep .pdx-timer-clock').html(
+              $(tag + ' .pdx-timer-clock').html(
                 tmr.toString(['minutes', 'seconds'])
               );
-              if (tmr.seconds == 0) {
+              if ((tmr.seconds == 0) & (tmr.minutes == 0)) {
                 $(tag).removeClass('btn-success')
                 $(tag).addClass('btn-idle')
                 if (audioPrep != null)
                   audioPrep.play()
                 // Enable settings
-                disableRadioButtonsSampPrep(false)
+                //disableRadioButtonsSampPrep(false)
+                disableRadioButtonByName(sett, false)
                 // Set value to 60
-                $('#timer-sample-prep .pdx-timer-clock').html(
-                  '00:'+ pad(parseInt($('input[name="settings-sp"]:checked').val()))
+                $(tag + ' .pdx-timer-clock').html(
+                  //'00:'+ pad(parseInt($('input[name="' + sett + '"]:checked').val()))
+                  formatSecondsToMMSS(parseInt($('input[name="' + sett + '"]:checked').val()))
                 );
               }
             }
@@ -1111,7 +1149,9 @@
           //updateTimersStartValue()
 
           // Initialise
-          behaviour1(0)
+          behaviour1(0, '#timer-sample-prep', 'settings-sp')
+          behaviour1(9, '#timer-enzyme', 'settings-ez')
+
           setUpTimerFromDB(1)
           setUpTimerFromDB(2)
           setUpTimerFromDB(3)
@@ -1329,6 +1369,12 @@
           timerPastTime(obj)
         }
       }
+    }
+
+    function formatSecondsToMMSS(seconds) {
+      const minutes = Math.floor(seconds / 60);
+      const remainingSeconds = seconds % 60;
+      return `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
     }
 
     /**
