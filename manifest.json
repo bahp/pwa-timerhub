@@ -1,6 +1,6 @@
 {
-  "name": "TimerHub",
-  "short_name": "TimerHub",
+  "name": "PDx Timer",
+  "short_name": "PDx Timer",
   "description": "PWA description",
   "id": "/pwa-timerhub/",
   "lang": "en-US",
@@ -8,15 +8,65 @@
   "display": "standalone",
   "background_color": "white",
   "theme_color": "#009944",
-    "icons": [
-    {
-      "src": "images/icons/android-chrome-192x192.png",
-      "sizes": "192x192",
+  "icons": [
+     {
+      "src": "images/icons/pdx/pdx-48x48.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+      {
+      "src": "images/icons/pdx/pdx-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+      {
+      "src": "images/icons/pdx/pdx-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+      {
+      "src": "images/icons/pdx/pdx-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+      {
+      "src": "images/icons/pdx/pdx-144x144.png",
+      "sizes": "144x144",
       "type": "image/png"
     },
     {
-      "src": "images/icons/android-chrome-512x512.png",
-      "sizes": "512x512",
+      "src": "images/icons/pdx/pdx-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    },
+    {
+      "src": "images/icons/pdx/pdx-167x167.png",
+      "sizes": "167x167",
+      "type": "image/png"
+    },
+    {
+      "src": "images/icons/pdx/pdx-180x180.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "images/icons/pdx/pdx-192x192.png",
+      "sizes": "167x167",
+      "type": "image/png"
+    },
+    {
+      "src": "images/icons/pdx/pdx-384x384.png",
+      "sizes": "167x167",
+      "type": "image/png"
+    },
+    {
+      "src": "images/icons/pdx/pdx-512x512.png",
+      "sizes": "167x167",
+      "type": "image/png"
+    },
+    {
+      "src": "images/icons/pdx/pdx-1024x1024.png",
+      "sizes": "167x167",
       "type": "image/png"
     },
     {
