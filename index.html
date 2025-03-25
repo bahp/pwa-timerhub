@@ -2,20 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title> TimerHUB </title>
+  <title> PDx Timer </title>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="manifest" href="manifest.json">
   <link rel="shortcut icon" href="favicon.ico">
+  <!--
   <link rel="icon" type="image/png" sizes="16x16" href="images/icons/favicon-16x16.png">
   <link rel="icon" type="image/png" sizes="32x32" href="images/icons/favicon-32x32.png">
+  -->
+  <link rel="icon" type="image/png" sizes="16x16" href="images/icons/pdx/pdx-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/icons/pdx/pdx-32x32.png">
 
   <!-- iOS -->
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-touch-fullscreen" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-title" content="PWA Splash">
+  <meta name="apple-mobile-web-app-title" content="PDx Timer">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
   <!--
@@ -28,7 +32,13 @@
   <link rel="apple-touch-startup-image" href="images/splash/launch-2048x2732.png" media="(min-device-width: 1024px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)">
   <link rel="apple-touch-icon" sizes="180x180" href="images/icons/apple-touch-icon.png">
   -->
-  <link rel="mask-icon" href="images/icons/safari-pinned-tab.svg" color="#6F6F6F">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/pdx/pdx-180x180.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/images/icons/pdx/pdx-167x167.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/pdx/pdx-152x152.png">
+
+  <!--<link rel="mask-icon" href="images/icons/safari-pinned-tab.svg" color="#6F6F6F">-->
+  <link rel="mask-icon" href="images/icons/pdx/pdx-icon.svg" color="#6F6F6F">
   <meta name="msapplication-TileColor" content="#00aba9">
   <meta name="theme-color" content="#ffffff">
   <title>TH1</title>
@@ -813,10 +823,18 @@
       updateProfile(PROFILE)
     });*/
 
+    $('#settings-time-enzyme input').on('change', function() {
+      let val = $('input[name="settings-ez"]:checked').val();
+      //let str = '00:{}'.format(pad(Number(val)))
+      let str = formatSecondsToMMSS(parseInt(val))
+      $('#timer-enzyme').find('.pdx-timer-clock').html(str)
+    });
+
     // Update visual start value on radio button change
     $('#settings-time-sample-preparation input').on('change', function() {
       let val = $('input[name="settings-sp"]:checked').val();
-      let str = '00:{}'.format(pad(Number(val)))
+      //let str = '00:{}'.format(pad(Number(val)))
+      let str = formatSecondsToMMSS(parseInt(val))
       $('#timer-sample-prep').find('.pdx-timer-clock').html(str)
     });
 
@@ -863,20 +881,30 @@
         event.stopPropagation()
       })
 
+
+    /* Since now any audio can be played at any time, instead of
+       enabling a particular audio depending on the bell that was
+       clicked, we will prepare all the audios always.
+     */
+
     // Silence sample preparation noise.
     $('#sample-prep-bell').on('click', function (e) {
       audioPrep = prepareAudio('bg-audio-prep')
       audioPrep.volume = $(this).is(":checked")
+      audioDanger = prepareAudio('bg-audio-danger')
+      audioDanger.volume = $(this).is(":checked")
     })
 
 
     // Silence heat block noise
     $('#heat-block-bell').on('click', function (e) {
-      //audioWarn = prepareAudio('bg-audio-warn')
+      audioPrep = prepareAudio('bg-audio-prep')
+      audioPrep.volume = $(this).is(":checked")
       audioDanger = prepareAudio('bg-audio-danger')
-      //audioPast = prepareAudio('bg-audio-past')
-      //audioWarn.volume = $(this).is(":checked")
       audioDanger.volume = $(this).is(":checked")
+      //audioWarn = prepareAudio('bg-audio-warn')
+      //audioWarn.volume = $(this).is(":checked")
+      //audioPast = prepareAudio('bg-audio-past')
       //audioPast.volume = $(this).is(":checked")
     })
 
@@ -895,8 +923,13 @@
 
 
 
+    $( "#timer-sample-prep" ).on( "dblclick", function() {
+      easyTimerDblclickReset(0, '#timer-sample-prep', 'settings-sp')
+    });
 
-
+    $( "#timer-enzyme" ).on( "dblclick", function() {
+      easyTimerDblclickReset(9, '#timer-enzyme', 'settings-ez')
+    });
 
     /**
      $('[id^=timer-btn-]').find('.pdx-timer-clock').each(
@@ -1051,7 +1084,23 @@
       return ['minutes', 'seconds']
     }*/
 
-    function behaviour1(id, tag, sett) {
+
+    function easyTimerDblclickReset(id, tag, sett) {
+      if (_TIMERS[id].isRunning()) {
+        _TIMERS[id].stop()
+        // Reset timer interface
+        $(tag).removeClass('btn-success')
+        $(tag).addClass('btn-idle')
+        // Enable settings
+        disableRadioButtonByName(sett, false)
+        // Set value to 60
+        $(tag + ' .pdx-timer-clock').html(
+          formatSecondsToMMSS(parseInt($('input[name="' + sett + '"]:checked').val()))
+        );
+      }
+    }
+
+    function behaviour1(id, tag, sett, audio) {
       /**
        * Counts down until it is done and then keeps the 00:00
        * value. If clicked while counting it does nothing. If
@@ -1091,8 +1140,12 @@
               if ((tmr.seconds == 0) & (tmr.minutes == 0)) {
                 $(tag).removeClass('btn-success')
                 $(tag).addClass('btn-idle')
-                if (audioPrep != null)
-                  audioPrep.play()
+                if (audio != null)
+                  if ((audio == 2) & (audioDanger != null))
+                    audioDanger.play()
+                  else
+                    if (audioPrep != null)
+                      audioPrep.play()
                 // Enable settings
                 //disableRadioButtonsSampPrep(false)
                 disableRadioButtonByName(sett, false)
@@ -1149,8 +1202,8 @@
           //updateTimersStartValue()
 
           // Initialise
-          behaviour1(0, '#timer-sample-prep', 'settings-sp')
-          behaviour1(9, '#timer-enzyme', 'settings-ez')
+          behaviour1(0, '#timer-sample-prep', 'settings-sp', 1)
+          behaviour1(9, '#timer-enzyme', 'settings-ez', 2)
 
           setUpTimerFromDB(1)
           setUpTimerFromDB(2)
