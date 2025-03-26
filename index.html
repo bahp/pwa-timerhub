@@ -258,6 +258,33 @@
     </div>
 
 
+    <!-- ------------------------ -->
+    <!-- Offcanvas (RIGHT)        -->
+    <!-- ------------------------ -->
+    <div class="offcanvas offcanvas-start" tabindex="-1"
+         id="offcanvasLeft" aria-labelledby="offcanvasLeftLabel">
+      <div class="offcanvas-header">
+        <h5 id="offcanvasLeftLabel" class="pdx-title">Help</h5>
+        <button type="button" class="btn-close text-reset"
+                data-bs-dismiss="offcanvas" aria-label="Close">
+        </button>
+      </div>
+      <div class="offcanvas-body d-flex flex-column">
+        <div>
+          <div class="text-start pb-3">
+            To ensure proper functionality of the sample preparation buttons,
+            please <b>keep the app in the foreground at all times</b>. If the app is
+            sent to the background, the buttons will be paused. Additionally,
+            if the app is refreshed or closed, the timers will be reset.
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+
+
     <!-- ----------------- -->
     <!-- Navigation bar    -->
     <!-- ----------------- -->
@@ -265,7 +292,11 @@
       <div class="d-flex">
 
         <div class="flex-grow-1 text-start">
-          <a class="icon-faq" href="#">
+          <a class="icon-faq"
+             data-bs-toggle="offcanvas"
+             href="#offcanvasLeft"
+             role="button"
+             aria-controls="offcanvasLeft">
             <!--<i class="fas fa-bell fa-2x"></i>-->
             <h1><i class="bi bi-question-circle d-inline-block"></i></h1>
             <!--<h1><i class="bi bi-arrow-clockwise d-inline-block"
